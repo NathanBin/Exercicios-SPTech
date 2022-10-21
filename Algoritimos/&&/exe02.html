@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+<body>
+
+    Insira sua renda: <input type="text" id="inRenda"><br>
+    Insira a renda total familiar: <input type="text" id="inTotal"><br>
+    <button onclick="verRenda()">Verificar ajuda</button>
+    
+</body>
+</html>
+<script>
+    function verRenda(){
+        var renda = Number(inRenda.value)
+        var total = Number(inTotal.value)
+
+       if(renda <= 1050 && total <= 2100){ alert ('Você terá direito')}
+       else { alert ('Você não terá direito')
+    }
+
+    }
+</script>

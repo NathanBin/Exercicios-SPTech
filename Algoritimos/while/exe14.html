@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14</title>
+</head>
+<body>
+
+    <input type="text" id="inDia" placeholder="A cada quantos dias faz academia"><br>
+    <button onclick="rotina()">Exibir rotina mensal</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+
+<script>
+    function rotina(){
+        var dia = Number(inDia.value)
+        var comer = 'Comer, dormir etc'
+        var musc = 'Musculação'
+        var mes = 30
+        var contador = 1
+        var intervalo = mes / dia 
+
+        while(contador < (mes + 1)){
+           if (contador % dia == 1){
+            divR.innerHTML += `Dia ${contador} - ${musc}<br>`
+           }else {
+            divR.innerHTML += `Dia ${contador} - ${comer}<br>` 
+           }
+           contador++
+        }
+    }
+</script>

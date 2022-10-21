@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <h2>Mercadão</h2>
+
+    Selecione um produto: 
+    <select id="selCombo">
+        <option value="">- Selecione um produto -</option>
+        <option value="19.49">Leite</option>
+        <option value="9.89">Arroz</option>
+        <option value="7.59">Farinha</option>
+        <option value="6.99">Café</option>
+    </select><br>
+    <button onclick="calculo()">Ver Preço</button>
+    
+</body>
+</html>
+<script>
+    function calculo(){
+        var preco = Number(selCombo.value).toFixed(2)
+
+        if(preco != 0){alert(`Isso custa R$${preco}`)}
+    }
+</script>

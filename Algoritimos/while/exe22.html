@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22</title>
+</head>
+<body>
+
+    <button onclick="analise()">Curto 3 e 5</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var contador = 1
+        
+            divR.innerHTML = ''
+            divR.innerHTML += `0<br>`
+        while(contador <= 100){
+            var tri = contador % 3 == 0
+            var penta = contador % 5 == 0
+            var triPenta = (contador % 3 == 0) && (contador % 5 == 0)
+            if(triPenta){
+                divR.innerHTML += `É TRI! É PENTA<br>`
+            }else if(tri){
+                divR.innerHTML += `É TRI!<br>`
+            }else if(penta){
+                divR.innerHTML += `É PENTA<br>`
+            }else {
+                divR.innerHTML += `${contador}<br>`
+            }
+
+            contador++
+        }
+
+
+    }
+</script>

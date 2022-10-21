@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <input type="text" id="inRenda" placeholder="Insira sua renda individual"><br>
+    <input type="text" id="inTotal" placeholder="Insira a renda total da sua familia"><br>
+    <button onclick="analise()">Terei beneficio</button>
+    <div id="divResultado"></div>
+
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var renda = Number(inRenda.value)
+        var total = Number(inTotal.value)
+
+        if(renda <= 2000 || total <= 3000){
+        divResultado.innerHTML = 'Você terá direito ao auxilio'
+        }else {
+            divResultado.innerHTML = 'Você não terá direito ao auxilio'
+        }
+    }
+</script>

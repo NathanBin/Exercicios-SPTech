@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29-09</title>
+</head>
+<body>
+    <h2>Resto de divisão  %</h2>
+
+    <input type="text" id="inNumero" placeholder="Qualquer numero" onkeyup="analise()">
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function analise(){
+        var numero = Number(inNumero.value)
+
+        divResultado.innerHTML = ''
+
+        
+        if(numero % 2 == 0){
+            divResultado.innerHTML += 'É par'
+        }else {
+            divResultado.innerHTML += 'É ímpar'
+        }
+        divResultado.innerHTML += `<br>`
+        if(numero % 7 == 0){
+            divResultado.innerHTML += 'É multiplo de 7'
+        }else {
+            divResultado.innerHTML += 'Não é multiplo de 7'
+        }
+    }
+</script>

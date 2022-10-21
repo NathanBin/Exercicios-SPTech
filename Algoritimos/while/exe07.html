@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+</head>
+<body>
+
+    <input type="text" id="inNumero" placeholder="Insira um numero entre 20 e 100"><br>
+    <button onclick="mult()">Adoro multiplos de 5</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function mult(){
+        var numero = Number(inNumero.value)
+        contador = 0
+        
+        if(numero >= 20 && numero <=100){
+            while(contador < (numero + 1)){
+                divR.innerHTML += `${contador}<br>`
+                contador = contador + 5
+            }
+        }
+    }
+</script>

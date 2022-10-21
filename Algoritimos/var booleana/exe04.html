@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    <input type="text" id="inIdade" placeholder="Insira sua idade" onkeyup="analise()"><br>
+    <div id="divR"></div>
+
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var idade = Number(inIdade.value)
+
+        var infancia = idade > 12
+        var adol = idade > 18
+        var idoso = idade >= 65
+        var pontos = 0
+
+        if(!infancia){
+            
+            divR.innerHTML = `
+            Já passou pela infância: ${infancia} 
+            <br>
+            Já passou pela adolescência: ${adol} 
+            <br>
+            Já é um idoso: ${idoso}
+            <br>
+            TOTAL DE PONTOS: ${pontos}
+            `
+        }
+        if (infancia){
+            pontos += 10
+            divR.innerHTML = `
+            Já passou pela infância: ${infancia} 
+            <br>
+            Já passou pela adolescência: ${adol} 
+            <br>
+            Já é um idoso: ${idoso}
+            <br>
+            TOTAL DE PONTOS: ${pontos}
+        `}
+        if (adol){
+            pontos += 20
+            divR.innerHTML = `
+            Já passou pela infância: ${infancia}
+            <br>
+            Já passou pela adolescência: ${adol}
+            <br>
+            Já é um idoso: ${idoso}
+            <br>
+            TOTAL DE PONTOS: ${pontos}
+        `}
+        if (idoso){
+            pontos += 50
+            divR.innerHTML = `
+            Já passou pela infância: ${infancia}
+            <br>
+            Já passou pela adolescência: ${adol}
+            <br>
+            Já é um idoso: ${idoso}
+            <br>
+            TOTAL DE PONTOS: ${pontos}
+        `}
+
+    }
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22-09</title>
+</head>
+<body>
+
+    <h2>Saio hoje?</h2>
+
+    <input placeholder="Insira seu dinheiro" id="inDinheiro"><br>
+    <input placeholder="Insira a tempeturatura" id="inTemperatura"><br>
+    <button onclick="vouSair()">Vou sair?</button>
+    <div id="divResultado"></div>
+    
+</body>
+</html>
+<script>
+    function vouSair(){
+        var dinheiro = Number(inDinheiro.value)
+        var temperatura = Number(inTemperatura.value)
+
+        if(dinheiro >= 100 && temperatura >= 20){
+            divResultado.innerHTML = 'Vou sair'
+        }else {
+            divResultado.innerHTML = 'Não vou sair'
+        }
+    }
+</script>

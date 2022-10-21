@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09</title>
+</head>
+<body>
+
+Insira sua meta de economia: <input type="text" id="inMeta"><br>
+Insira o valor que você guarda: <input type="text" id="inValor"><br>
+<button onclick="verAnalise()">Analisar economia</button>
+<div id="divResultado"></div>
+    
+</body>
+</html>
+<script>
+    function verAnalise(){
+        var meta = Number(inMeta.value)
+        var valor = Number(inValor.value)
+        var resultado = ''
+
+        if(valor < meta){
+            resultado = 'Força! Ainda em busca da meta!'
+        } else{
+            resultado = 'Parabéns! Meta alcançada!'
+        }if(valor > meta){
+            resultado += `<br>Meta ultrapassada em ${valor - meta}`
+       }
+       divResultado.innerHTML = resultado
+    }
+</script>

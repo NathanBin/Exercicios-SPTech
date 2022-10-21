@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+
+    <input type="text" id="inTemp" placeholder="Temperatura atual"><br>
+    <button onclick="analise()">Analisar clima</button>
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var temp = Number(inTemp.value)
+
+        if(temp < 21 || temp > 24){
+            alert('Alerta de desconforto')
+        }
+        if(temp < 21){
+            alert('As pessoas vão ter hipotermia')
+        }
+        if(temp > 24){
+            alert('As pessoas vão derreter')
+        }
+    }
+</script>

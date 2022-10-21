@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14</title>
+</head>
+<body>
+    <h2>Processo de seleção de novos atletas</h2>
+    <h4>Critério de seleção de pilotos</h4>
+    <input type="text" id="inInicial" placeholder="Insira a altura inicial"><br>
+    <input type="text" id="inFinal" placeholder="Insira a altura final"><br>
+    <h4>Critério de seleção de jogadores de basquete</h4>
+    <input type="text" id="inInicialB" placeholder="Insira a altura inicial"><br>
+    <input type="text" id="inFinalB" placeholder="Insira a altura final"><br>
+    <h4>Dados</h4>
+    <input type="text" id="inNome" placeholder="Insira seu nome"><br>
+    <input type="text" id="inAltura" placeholder="Insira sua altura"><br>
+    <select id="selModalidade">
+        <option value="">- selecione a modadelidade -</option>
+        <option value="P">Piloto</option>
+        <option value="B">Jogador de basquete</option>
+    </select><br>
+
+    <button onclick="verificar()">Selecionar</button>
+    <div id="divR"></div>
+
+
+    
+</body>
+</html>
+<script>
+
+var Resultado = ''
+
+    function verificar(){
+        var inIP = Number(inInicial.value)
+        var inFP = Number(inFinal.value)
+        var inIB = Number(inInicialB.value)
+        var inFB = Number(inFinalB.value)
+        var nome = inNome.value
+        var altura = Number(inAltura.value)
+        var mod = selModalidade.value
+
+
+        if(inIP < 1 || inIB < 1.5){
+            Resultado += `Altura inicial INVÁLIDA<br>`
+        }else if(mod == 'P'){
+            if(altura >= inIP && altura <= inFP){
+                Resultado += `O candidato ${nome} com altura de ${altura} participará do processo de seleção de piloto<br>`
+            }else{
+                Resultado += `Infelizmente o candidato ${nome} com altura ${altura} não atende aos requisitos<br>`
+            }
+            
+        }else if(mod == 'B'){
+            if(altura >= inIB && altura <= inFB){
+                Resultado += `O candidato ${nome} com altura de ${altura} participará do processo de seleção de jogador de basquete<br>`
+            }else{
+                Resultado += `Infelizmente o candidato ${nome} com altura ${altura} não atende aos requisitos<br>`
+            }
+        }
+
+
+        inInicial.value = ''
+        inFinal.value = ''
+        inInicialB.value = ''
+        inFinalB.value = ''
+        divR.innerHTML = Resultado
+    }
+</script>

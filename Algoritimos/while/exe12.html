@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+</head>
+<body>
+
+    <input type="text" id="inVolta" placeholder="Numero de voltas"><br>
+    <button onclick="volta()">Iniciar corrida</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function volta(){
+        var voltas = Number(inVolta.value)
+        var contador = 0
+
+        divR.innerHTML = ''
+
+        while (contador < voltas){
+            contador++
+            divR.innerHTML += `Carro dando a ${contador}º volta<br>`
+        }if(contador >= voltas){
+            divR.innerHTML += `Corrida finalizada!`
+        }
+    }
+</script>

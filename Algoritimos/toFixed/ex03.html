@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+    Insira o primeiro número: <input type="text" id="inN1"><br>
+    Insira o segundo número: <input type="text" id="inN2"><br>
+    <button onclick="calculo(1)">Soma</button>
+    <button onclick="calculo(2)">Subtração</button>
+    <button onclick="calculo(3)">Multiplicação</button>
+    <button onclick="calculo(4)">Divisão</button>
+    <div id="divResultado"></div>
+
+    
+</body>
+</html>
+<script>
+    function calculo(id){
+        var N1 = Number(inN1.value)
+        var N2 = Number(inN2.value)
+        var Soma = N1 + N2
+        var Sub = N1 - N2
+        var Mult = N1 * N2
+        var Divi = N1 / N2
+
+        if(id == 1){
+           divResultado.innerHTML = (`A soma entre ${N1} e ${N2} é ${Soma}!`)
+        }
+        if(id == 2){
+            divResultado.innerHTML = (`A diferença entre ${N1} e ${N2} é ${Sub}!`)
+        }
+        if(id == 3){
+            divResultado.innerHTML = (`O produto entre ${N1} e ${N2} é ${Mult}!`)
+        }
+        if(id == 4){
+            divResultado.innerHTML = (`A razão entre ${N1} e ${N2} é ${Divi}!`)
+        }
+
+    }
+
+    /* Bom dia professor, sei que não era com esses conceitos que deveria ser feito o exercício mas
+    estava com essa idéia na cabeça que daria para resolver com apenas 1 função, então fui atrás e
+    descobri esse método, mas caso queira o script de como deveria ser deixarei comentado abaixo. */
+
+    /* function soma(){
+        var N1 = Number(inN1.value)
+        var N2 = Number(inN2.value)
+        var Soma = N1 + N2
+
+        divResultado.innerHTML = (`A soma entre ${N1} e ${N2} é ${Soma}!`)
+    }
+    function divisao(){
+        var N1 = Number(inN1.value)
+        var N2 = Number(inN2.value)
+        var Sub = N1 + N2
+
+        divResultado.innerHTML = (`A diferença entre ${N1} e ${N2} é ${Sub}!`)
+    }
+    function multi(){
+        var N1 = Number(inN1.value)
+        var N2 = Number(inN2.value)
+        var Mult = N1 + N2
+
+        divResultado.innerHTML = (`O produto entre ${N1} e ${N2} é ${Mult}!`)
+    }
+    function divi(){
+        var N1 = Number(inN1.value)
+        var N2 = Number(inN2.value)
+        var Divi = N1 + N2
+
+        divResultado.innerHTML = (`A razão entre ${N1} e ${N2} é ${Divi}!`)
+    }
+ */
+
+</script>

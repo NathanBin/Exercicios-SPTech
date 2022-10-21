@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21</title>
+</head>
+<body>
+
+    <input type="text" id="inOnibus" placeholder="Quantidade de ônibus"><br>
+    <input type="text" id="inTrem" placeholder="Quantidade de trem"><br>
+    <input type="text" id="inMetro" placeholder="Quantidade de metrô"><br>
+    <button onclick="trajeto()">#PartiuTrajeto</button>
+    <div id="divR"></div>
+
+</body>
+</html>
+<script>
+    function trajeto(){
+        var onibus = Number(inOnibus.value)
+        var trem = Number(inTrem.value)
+        var metro = Number(inMetro.value)
+
+        var contadorO = 1
+        var contadorT = 1
+        var contadorM = 1
+
+        var negativo = onibus >= 0 && trem >= 0 && metro >= 0
+        var zero = onibus == 0 && trem == 0 && metro == 0
+
+        if(negativo){
+            if(zero){
+                divR.innerHTML = `<span style="color: yellow;">OPS... Parece que esse veio de helicóptero!!!  Kkk</span><br>`
+            }else{
+                if(onibus == 0){
+                    divR.innerHTML += `<span style="color: red;">Não precisou pegar o buzão</span><br>`
+                }else{
+                    while(contadorO <= onibus){
+                        if(contadorO == 1){
+                            divR.innerHTML += `<span style="color: red;">Pegando o ${contadorO}º buzão</span><br>`
+                        }else if(contadorO == 2){
+                            divR.innerHTML += `<span style="color: red;">Pegando o ${contadorO}º buzão - Começando a cansar</span><br>`
+                        }else {
+                            divR.innerHTML += `<span style="color: red;">Pegando o ${contadorO}º buzão - Ja cansado</span><br>`
+                        }
+                        contadorO++
+                    }        
+                }
+                if(trem == 0){
+                    divR.innerHTML += `<span style="color: green;">Não precisou pegar o trem</span><br>`
+                }else{
+                    while(contadorT <= trem){
+                        if(contadorT == 1){
+                            divR.innerHTML += `<span style="color: green;">Pegando o ${contadorT}º trem</span><br>`
+                        }else if(contadorT == 2){
+                            divR.innerHTML += `<span style="color: green;">Pegando o ${contadorT}º trem - Começando a cansar</span><br>`
+                        }else{
+                            divR.innerHTML += `<span style="color: green;">Pegando o ${contadorT}º trem - Ja cansado</span><br>`
+                        } 
+                        contadorT++ 
+                    }
+                }
+                if(metro == 0){
+                    divR.innerHTML += `<span style="color: blue;">Não precisou pegar o metro</span><br>`
+                }else{
+                    while(contadorM <= metro){ 
+                        if(contadorM == 1){   
+                            divR.innerHTML += `<span style="color: blue;">Pegando o ${contadorM}º metro</span><br>`
+                        }else if(contadorM == 2){
+                            divR.innerHTML += `<span style="color: blue;">Pegando o ${contadorM}º metro - Começando a cansar</span><br>`
+                        }else{
+                            divR.innerHTML += `<span style="color: blue;">Pegando o ${contadorM}º metro - Ja cansado</span><br>`
+                        }
+                        contadorM++
+                    }
+                }
+            }
+        }else{
+            alert('Os valores não podem ser negativos!')
+        }
+    }
+    </script>

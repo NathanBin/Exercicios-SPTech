@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11</title>
+</head>
+<body>
+
+    <input type="text" id="inMundial" placeholder="Quantidade de mundial do seu time"><br>
+    <button onclick="trofeu()">Ver troféis de mundiais FIFA</button>
+    <div id="divR"></div>
+    <img src="" alt="" id="imgTrofeu" width="200px">
+    
+</body>
+</html>
+<script>
+    function trofeu(){
+        var trof = Number(inMundial.value)
+        var contador = 0
+
+        if(trof <= 0){
+            imgTrofeu.src = 'http://s2.glbimg.com/CYcRhevYhpxoNlkJ4Wwz36W8WOY=/fit-in/940x590/top/s.glbimg.com/es/ge/f/original/2012/11/19/palmeiras_torcida_rebaixamento_ae.jpg_95.jpg'
+
+        }else {
+            while (contador < trof){
+                divR.innerHTML += `<img src="https://cf.shopee.com.br/file/f4957cbcf401d373af4218e035197087" width="200px">`
+                contador++
+            }
+        }
+    }
+</script>

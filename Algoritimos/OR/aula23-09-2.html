@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23-09</title>
+</head>
+<body>
+
+    sabor:
+    <select id="selSabor" onchange="verSabor()">
+        <option value="c">Chocolate</option>
+        <option value="c">Morango</option>
+        <option value="nc">Jiló</option>
+        <option value="nc">Feijão</option>
+        <option value="nc">Queijo</option>
+    </select>
+    
+</body>
+</html>
+<script>
+    function verSabor(){
+        var sabor = selSabor.value
+
+        if(sabor == 'c'){
+            alert('Eu como esse sabor')
+        }else {
+            alert('Eu não como esse sabor')
+        }
+    }
+</script>

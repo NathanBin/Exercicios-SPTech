@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    Insira o modo de pagamento: 
+    <select id="selPag">
+        <option value="a">Dinheiro</option>
+        <option value="b">Cartão de Débito</option>
+        <option value="c">Cartão de Crédito</option>
+        <option value="d">Boleto</option>
+    </select>
+    <button onclick="analise()">Analisar Compra</button>
+    <div id="divResultado"></div>
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var pag = selPag.value
+
+        if(pag == 'a' || pag == 'b'){
+            divResultado.innerHTML = 'Vcoê terá que pagar a vista'
+        }else {
+            divResultado.innerHTML = 'Pagamento poderá ser parcelado'
+        }
+    }
+</script>

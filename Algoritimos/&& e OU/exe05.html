@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+    <h2>Pokemon iniciante</h2><br>
+    selecione o tipo do seu pokemon:<select id="selPoke">
+        <option value="10">Fogo</option>
+        <option value="20">Água</option>
+        <option value="40">Planta</option>
+    </select><br>
+    selecione o tipo do pokemon do oponente<select id="selPoke2">
+        <option value="1">Fogo</option>
+        <option value="3">Água</option>
+        <option value="5">Planta</option>
+    </select><br>
+    <button onclick="batalhar()">Batalhar!</button>
+    
+    <div id="divPlacar"> Vitórias do Iniciante: <b id="win">0</b> / Derrotas do Iniciante: <b id="loss">0</b> / Empates: <b id="draw">0</b></div>
+    <div id="divR"></div>
+</body>
+</html>
+<script>
+    var vitoria = 0
+    var derrota = 0
+    var empate = 0
+
+
+    function batalhar(){
+        var poke1 = Number(selPoke.value)
+        var poke2 = Number(selPoke2.value)
+
+        var fxp = poke1 * poke2 == 50
+        var axf = poke1 * poke2 == 20
+        var pxa = poke1 * poke2 == 120
+
+        var fxf = poke1 * poke2 == 10
+        var axa = poke1 * poke2 == 60
+        var pxp = poke1 * poke2 == 200
+
+        if(fxf || axa || pxp){
+            resu = 'A batalha empatou!'
+            empate += 1
+            draw.innerHTML = `${empate}`
+        }else if(fxp || axf || pxa){
+            resu = 'O iniciante venceu!'
+            vitoria += 1
+            win.innerHTML = `${vitoria}`
+        }else {
+            resu = 'O iniciante perdeu!'
+            derrota += 1
+            loss.innerHTML = `${derrota}`
+        }
+        
+
+        divR.innerHTML = resu
+    }
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15</title>
+</head>
+<body>
+
+    <input type="text" id="inIdade" placeholder="Coloque sua idade" onkeyup="verIdade()"><br>
+    <div id="divR"></div>
+    
+</body>
+</html>
+
+<script>
+    function verIdade(){
+        var idade = Number(inIdade.value)
+        var contador = 0
+
+        divR.innerHTML = ''
+
+        while(contador < (idade + 1)){
+            if(contador <= 4){
+                divR.innerHTML += `${contador} anos (Primeira infância)<br>`
+            }else if(contador <= 6){
+                divR.innerHTML += `${contador} anos (Pré-escola)<br>`
+            }else if(contador <= 10){
+                divR.innerHTML += `${contador} anos (Segunda infância)<br>`
+            }else if(contador <= 18){
+                divR.innerHTML += `${contador} anos (Adolescência)<br>`
+            }else if(contador <= 50){
+                divR.innerHTML += `${contador} anos (Adulto)<br>`
+            }else if(contador <= 100){
+                divR.innerHTML += `${contador} anos (Melhor idade)<br>`
+            }else{
+                divR.innerHTML += `${contador} anos (Matusalém)<br>`
+            }
+            contador++
+        }
+    }
+</script>

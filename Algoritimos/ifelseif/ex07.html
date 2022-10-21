@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+</head>
+<body>
+
+    Insira valor que você economizou: <input type="text" id="inValor"><br>
+    <button onclick="verPoder()">Poder de compra</button>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function verPoder(){
+        var valor = Number(inValor.value)
+        var resultado = ''
+
+        if(valor <= 0){
+            resultado = 'Nada de compras'
+        }else{
+            resultado = 'Viajem de ida e volta para Praia Grande'
+        }if(valor > 100){
+            resultado += '<br>Uma boa moto usada'
+        }if(valor >= 4000){
+            resultado += '<br>Um bom carro novo'
+        }
+        divResultado.innerHTML = resultado
+    }
+</script>

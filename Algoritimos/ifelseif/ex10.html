@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+
+    Insira seu nome: <input type="text" id="inNome"><br>
+    Insira seu saldo: <input type="text" id="inSaldo"><br>
+    <button onclick="verSaldo()">Verificar conta</button>
+    <div id="divResultado"></div>
+    
+</body>
+</html>
+<script>
+    function verSaldo(){
+        var nome = inNome.value
+        var saldo = Number(inSaldo.value).toFixed(2)
+        var resultado = ''
+
+        if(saldo < 0){
+            resultado = `Com o saldo de R$${saldo} o cliente ${nome} está com saldo devedor`
+        }else if(saldo <= 2000){
+            resultado = `Com o saldo de R$${saldo} o cliente ${nome} está com saldo normal`
+        }else if(saldo <= 5000){
+            resultado = `Com o saldo de R$${saldo} o cliente ${nome} está com saldo acima da média`
+        }else {
+            resultado = `Com o saldo de R$${saldo} o cliente ${nome} tem perfil de investidor`
+        }
+        divResultado.innerHTML = resultado
+    }
+</script>

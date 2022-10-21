@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11</title>
+</head>
+<body>
+
+    Selecione um mês do ano: 
+    <select id="selMes" onchange="verEstacao()">
+        <option value="">- Selecione um mês - </option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Janeiro</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Fevereiro</option>
+        <option value="https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg">Março</option>
+        <option value="https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg">Abril</option>
+        <option value="https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg">Maio</option>
+        <option value="https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg">Junho</option>
+        <option value="https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg">Julho</option>
+        <option value="https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg">Agosto</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg">Setembro</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg">Outubro</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg">Novembro</option>
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Dezembro</option>
+    </select><br><br>
+    <img src="" alt="" id="imgEstacao" height="200px">
+    
+</body>
+</html>
+<script>
+    function verEstacao(){
+        imgEstacao.src = selMes.value
+
+    }
+</script>

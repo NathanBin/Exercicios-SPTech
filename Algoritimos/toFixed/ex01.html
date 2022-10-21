@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+<body>
+    Insira o sabor da pizza: <input type="text" id="inSabor"><br>
+    Insira o preço da pizza: <input type="text" id="inPreco"><br>
+    Insira quantidade de amigos para dividir: <input type="text" id="inQtd"><br>
+    <button onclick="pedido()">Pedir Pizza</button>
+    <div id="divResultado"></div>
+
+
+    
+</body>
+</html>
+<script>
+    function pedido(){
+        var sabor = (inSabor.value)
+        var preco = Number(inPreco.value)
+        var qtd = Number(inQtd.value)
+        var amigo = preco / qtd
+
+
+        divResultado.innerHTML = (`A pizza de ${sabor} custa R$${preco.toFixed(2)} e cada amigo vai pagar R$${amigo.toFixed(2)}`)
+
+    }
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12</title>
+</head>
+<body>
+
+    <div id="divResultado">Você ja clicou 0 vezes!</div>
+    <button onclick="clique()">Clica aqui</button>
+    
+</body>
+</html>
+<script>
+    var vclick = 0
+    function clique(){
+     clickv = ++vclick
+        var resultado = ''
+
+        divResultado.innerHTML = `Você ja clicou ${clickv} vezes!`
+
+        if(clickv < 5){
+            resultado = `<br>Dedo fraquinho, hein!`
+        }else if (clickv <= 10){
+            resultado = `<br>Dedo bom, mano!`
+        }else if (clickv <= 15){
+            resultado = `<br>Gosta de clicar, hein!`
+        }else {
+            resultado = `<br>Eita dedo nervoso!`
+        }
+        divResultado.innerHTML += resultado
+
+    }
+</script>

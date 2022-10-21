@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+</head>
+<body>
+
+    Insira quantidade de anos que trabalhou com o pai da pretendente: <input type="text" id="inAnos"><br>
+    Insira quantidade de Kg de trigo que cada hectare rendeu: <input type="text" id="inKg"><br>
+    Insira quantidade de dias que faltou no trabalho por estar doente: <input type="text" id="inDias"><br>
+    <button onclick="match()">Deu Match?</button>
+    <div id="divResultado"></div>
+    <img id="imgNoiva" src="" alt="" height="300px">
+    
+</body>
+</html>
+<script>
+    function match(){
+        var anos = Number(inAnos.value)
+        var kg = Number(inKg.value)
+        var dias = Number(inDias.value)
+
+        if(anos >= 5 && kg >= 300 && dias <= 5){
+            imgNoiva.src = 'https://cdn0.casamentos.com.br/vendor/4938/3_2/960/jpg/maravilhosa_13_204938-160388684663511.jpeg'
+            divResultado.innerHTML = 'Minha filha será sua!'
+
+        }else {
+            imgNoiva.src = 'https://img.freepik.com/fotos-premium/gritando-homem-bravo_102671-5998.jpg'
+            divResultado.innerHTML = 'Trabalhe mais 2 anos!'
+        }
+
+    }
+</script>

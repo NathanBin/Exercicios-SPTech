@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+<body>
+
+    Escolha um item: 
+    <select id="selSaudavel" onchange="mudar()">
+        <option value="1">Ovo</option>
+        <option value="2">Soja</option>
+        <option value="3">Carne</option>
+    </select><br>
+    Escolha uma sobremesa:
+    <select id="selSobremesa" onchange="mudar()">
+        <option value="4">Pudim</option>
+        <option value="5">Petit Gateau</option>
+        <option value="6">Brigadeiro de Soja</option>
+    </select>
+    
+    
+</body>
+</html>
+<script>
+    function mudar(){
+        var proteina = Number(selSaudavel.value)
+        var sobremesa = Number(selSobremesa.value)
+
+        if (proteina == 2 && sobremesa == 6) {
+            alert('Você poderia ser vegano')
+        
+        }else {
+            alert('Você não pode ser vegano')
+        }
+    }
+</script>

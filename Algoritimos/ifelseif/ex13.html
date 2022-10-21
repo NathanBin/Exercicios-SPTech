@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+</head>
+<body>
+
+    <div id="divResultado">Valor guardado R$0.00</div>
+    <button onclick="guardar()">Guardar R$5.00</button><button onclick="gastar()">Gastar R$10.00</button>
+    
+</body>
+</html>
+<script>
+    var fundo = 0
+    
+
+    function guardar(){
+        var soma = fundo + 5
+        var resultado = ''
+
+        fundo = fundo + 5
+
+        if(fundo < -20){
+            resultado = `Valor guardado R$${soma.toFixed(2)}
+            <br><font color=red>Seu nome vai ficar sujo, hein?!</font>`
+        }
+        else if(fundo < 0){
+            resultado = `Valor guardado R$${soma.toFixed(2)}
+            <br><font color=red>Finanças em perigo!</font>`
+        }
+        else if(fundo <= 100){
+            resultado = `Valor guardado R$${soma.toFixed(2)} 
+            <br><font color=blue>Finanças OK!</font>`
+        }else {
+            resultado = `Valor guardado R$${soma.toFixed(2)}
+            <br>#ostentação`
+        }
+
+        divResultado.innerHTML = resultado
+    }
+
+    function gastar(){
+        var sub = fundo - 10
+        var resultado = ''
+
+        fundo = fundo - 10
+
+
+        if(fundo < -20){
+            resultado = `Valor guardado R$${sub.toFixed(2)}
+            <br><font color=red>Seu nome vai ficar sujo, hein?!</font>`
+        }
+        else if(fundo < 0){
+            resultado = `Valor guardado R$${sub.toFixed(2)}
+            <br><font color=red>Finanças em perigo!</font>`
+        }
+        else if(fundo <= 100){
+            resultado = `Valor guardado R$${sub.toFixed(2)} 
+            <br><font color=blue>Finanças OK!</font>`
+        }else {
+            resultado = `Valor guardado R$${sub.toFixed(2)}
+            <br>#ostentação`
+        }
+        divResultado.innerHTML = resultado
+
+    }
+
+</script>

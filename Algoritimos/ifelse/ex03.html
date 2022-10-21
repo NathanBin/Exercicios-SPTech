@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+    Insira a quantidade de chocolates que foram comprados: <input type="text" id="in_01"><br>
+    <button onclick="compra()">Compra</button>
+    <div id="div_01"></div>
+
+
+    
+</body>
+</html>
+<script>
+    function compra(){
+        var qtd = Number(in_01.value)
+        var valor = qtd * 3
+        
+
+        if (qtd < 12){
+            div_01.innerHTML = (`O valor da sua compra foi de R$${valor}.`)
+        } else { var valor = qtd * 2.5
+            div_01.innerHTML = (`O valor da sua compra foi de R$${valor}.`)
+        }
+    }
+</script>

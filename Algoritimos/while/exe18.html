@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18</title>
+</head>
+<body>
+
+    <input type="text" id="inQtd" placeholder="Quantidade de pessoas no carro"><br>
+    <input type="text" id="inCapacidade" placeholder="Capacidade maxima no carro"><br>
+    <button onclick="verCarona()">#Partiu Carona</button>
+    <div id="divR"></div>
+</body>
+</html>
+<script>
+    function verCarona(){
+        var qtd = Number(inQtd.value)
+        var capacidade = Number(inCapacidade.value)
+        var contador = 0
+
+        while(contador < (qtd + 1)){
+            if(contador == 1){
+                divR.innerHTML = `Entrou o ${contador}º passageiro (Motorista)<br>`
+            }
+            else if(contador <= capacidade){
+                divR.innerHTML += `Entrou o ${contador}º passageiro<br>`
+            }else{
+                divR.innerHTML += `O ${contador}º terá que esperar!<br>`
+            }
+            contador++
+        }
+    }
+</script>

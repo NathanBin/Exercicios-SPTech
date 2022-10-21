@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+    Insira seu salário bruto: <input type="text" id="inBruto"><br>
+    <button onclick="descontos()">Ver Descontos</button>
+    
+</body>
+</html>
+<script>
+    function descontos(){
+        var bruto = Number(inBruto.value)
+        
+
+        alert (`Apesar do seu bruto ser R$${bruto.toFixed(2)}, após os descontos, você receberá somente R$${(bruto*0.6666).toFixed(2)}.`)
+
+
+    }
+</script>

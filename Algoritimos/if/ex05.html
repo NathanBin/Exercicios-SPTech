@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+    Insira quantidade de kWh por mês: <input type="text" id="in_01"><br>
+    <button onclick="calculo()">calcular conta de luz</button>
+
+
+
+
+    
+</body>
+</html>
+<script>
+    function calculo(){
+        var kwh = Number(in_01.value)
+        var conta = kwh * 0.85
+
+        if (kwh <= 100){
+            conta = conta * 0.9
+        }
+    
+        alert (`A conta será de R$${conta}.`)
+
+        
+    
+    }
+
+
+</script>

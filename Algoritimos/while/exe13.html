@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+</head>
+<body>
+    Selecione um numero da tabuada
+    <select id="selTabu">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select><br>
+    <input type="text" id="inFinal" placeholder="Numero final da tabuada"><br>
+    <button onclick="tabuada()">Ver Tabuada</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function tabuada(){
+        var Num = Number(selTabu.value)
+        var final = Number(inFinal.value)
+        var contador = 1
+        var cor = ''
+
+        divR.innerHTML = ''
+        
+        while(contador < (final + 1)){
+            if(contador % 2 == 0){
+                cor = `blue`
+            }else{
+                cor = `red`
+            }
+            var mult = Num * contador
+            divR.innerHTML += `<span style="color:${cor}";>${Num} X ${contador} = ${mult}</span> <br>`
+            contador++
+        }
+        
+
+        
+    
+
+
+        
+    }
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <h2>Temperatura</h2>
+
+    Insira a temperatura atual: <input type="text" id="inTemperatura" onkeyup="verTemperatura()">
+    <div id="divTemperatura"></div>
+</body>
+</html>
+
+<script>
+    function verTemperatura(){
+        var temperatura = Number(inTemperatura.value)
+        var resultado = ''
+
+        if(temperatura < 14){
+            resultado = 'Congelante'
+        }else if(temperatura <= 21){
+            resultado = 'Com frio'
+        }else if(temperatura <= 24){
+            resultado = 'Confortável'
+        }else if(temperatura <= 31){
+            resultado = 'Com calor'
+        }else {
+            resultado = 'Calor escaldante'
+        }
+
+        divTemperatura.innerHTML = resultado
+    }
+
+</script>

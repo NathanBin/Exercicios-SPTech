@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    Insira sua renda familiar: <input type="text" id="in_01"><br>
+    Insira o valor da prestação:    <input type="text" id="in_02"><br>
+    <button onclick="calculo()">Verificar financiamento</button>
+    <div id="div_01"></div>
+
+</body>
+</html>
+<script>
+    function calculo(){
+        var renda = Number(in_01.value)
+        var valor = Number(in_02.value)
+        var prest = (valor / renda) * 100 
+
+        div_01.innerHTML = (`A prestação corresponde a ${prest}% da renda familiar. `)
+
+        if (prest > 30){
+            div_01.innerHTML += ('<br><font color = red><b>Será necessário completar a renda familiar.</b></font>')
+
+        }
+    }
+</script>

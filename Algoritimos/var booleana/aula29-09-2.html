@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29-09</title>
+</head>
+<body>
+    <h4>Variavel booleano (boolean) só pode ser TRUE ou FALSE</h4>
+    <input type="text" id="inTemperatura" placeholder="Temperatura"><br>
+
+    <button onclick="analise()">Analisar</button>
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var temp = Number(inTemperatura.value)
+
+        var agradavel = temp > 23
+
+        if(agradavel){
+            alert('Temperatura agradavel')
+        }
+        if(!agradavel){
+            alert('Temperatura não está agradavel')
+        }
+    }
+</script>

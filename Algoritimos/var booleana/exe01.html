@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+<body>
+
+    <input type="text" id="inLogin" placeholder="Login"><br>
+    <input type="text" id="inSenha" placeholder="Senha"><br>
+    <button onclick="analise()">Entrar</button>
+    <div id="divR"></div>
+</body>
+</html>
+<script>
+    function analise(){
+        var Login = inLogin.value
+        var senha = inSenha.value
+
+        var log = Login == 'aiadmin'
+        var sen = senha == 'seinha'
+        var cor = ''
+
+        if(log && sen){
+            cor = 'blue'
+            divR.innerHTML = 'Usuário autenticado com sucesso'
+        }
+        if(!log){
+            cor = 'red'
+            divR.innerHTML = `Seu login está inválido`
+        }
+        if(!log && !sen){
+            cor = 'red'
+            divR.innerHTML = `Seu login está inválido<br>Sua senha está errada`
+        }
+        if(log && !sen){
+
+            alert('entre em contato com o suporte para recuperar sua senha')
+        }
+
+        divR.style.color = `${cor}`
+    }
+</script>

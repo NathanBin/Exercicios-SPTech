@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+    Insira a nota 1 <input type="text" id="in_01"><br>
+    Insira a nota 2  <input type="text" id="in_02"><br>
+    Insira a nota 3 <input type="text" id="in_03"><br>
+    <button onclick="calcular()">Analisar desempenho</button>
+
+
+
+<div id="div_01"></div>
+
+
+
+
+
+</body>
+</html>
+<script>
+    function calcular(){
+        var n1 = Number(in_01.value)
+        var n2 = Number(in_02.value)
+        var n3 = Number(in_03.value)
+        var media = (n1 + n2 + n3)/3
+        div_01.innerHTML = (`Sua média foi de ${media}.`)
+        if (media >= 9.4){
+            div_01.innerHTML += ('<br> Parabéns, você é fora de série.')
+        }
+    }
+</script>
+

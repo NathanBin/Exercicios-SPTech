@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20-10</title>
+</head>
+<body>
+
+    <h2>Repetindo Mantras</h2>
+
+    <button onclick="repetir5()">Repetir 5x</button><br>
+    <input type="text" id="inRepeticao" placeholder="vezes de repetições"><br>
+    <button onclick="repetir()">Repetir</button>
+
+    <div id="divRepeticao"></div>
+    
+</body>
+</html>
+<script>
+    function repetir5(){
+        divRepeticao.innerHTML = ''
+
+        for (var contador = 0; contador < 5; contador++){
+            divRepeticao.innerHTML += `${contador}- Foco, força e fé<br>`
+        }
+
+    }
+
+    function repetir(){
+        divRepeticao.innerHTML = ''
+        var qtd = Number(inRepeticao.value)
+
+        for(var i = 1; i <= qtd; i++){
+            divRepeticao.innerHTML += `${i} - Contando até ${qtd}<br>`
+        }
+    }
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19</title>
+</head>
+<body>
+
+    <input type="text" id="inOnibus" placeholder="Quantidade de ônibus"><br>
+    <input type="text" id="inTrem" placeholder="Quantidade de trem"><br>
+    <input type="text" id="inMetro" placeholder="Quantidade de metrô"><br>
+    <button onclick="trajeto()">#PartiuTrajeto</button>
+    <div id="divR"></div>
+  
+</body>
+</html>
+<script>
+    function trajeto(){
+        var onibus = Number(inOnibus.value)
+        var trem = Number(inTrem.value)
+        var metro = Number(inMetro.value)
+
+        var contadorO = 1
+        var contadorT = 1
+        var contadorM = 1
+
+
+        while(contadorO <= onibus){
+            divR.innerHTML += `<span style="color: red;">Pegando o ${contadorO}º buzão</span><br>`
+            contadorO++
+        }        
+        while(contadorT <= trem){
+            divR.innerHTML += `<span style="color: green;">Pegando o ${contadorT}º trem</span><br>`
+            contadorT++  
+        }
+        while(contadorM <= metro){    
+            divR.innerHTML += `<span style="color: blue;">Pegando o ${contadorM}º metro</span><br>`
+            contadorM++
+        }
+    }
+    </script>

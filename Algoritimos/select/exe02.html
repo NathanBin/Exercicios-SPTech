@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+<body>
+    
+    <h2>Simulador de aposentadoria</h2>
+
+    Insira quantos anos já trabalhou<input type="text" id="inAnos"><br>
+    Selecione qual das áreas foi sua maior contribuição<select id="selAposentadoria">
+        <option value="40">Funcionário de empresa privada</option>
+        <option value="35">Funcionário de empresa pública</option>
+        <option value="45">Empreendedor</option>       
+    </select><br>
+    <button onclick="calculo()">Calcular aposentadoria</button>
+    <div id="divResultado"></div>
+</body>
+</html>
+<script>
+    function calculo(){
+        var setor = Number(selAposentadoria.value)
+        var anos = Number(inAnos.value)
+
+        divResultado.innerHTML = (`Você ainda terá que trabalhar mais ${setor - anos} anos para se aposentar`)
+    }
+</script>

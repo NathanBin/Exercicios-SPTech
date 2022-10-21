@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <div id="divResultado">Você ja clicou <B id="pQtd">0</B> vezes!</div>
+    <button onclick="contar()">Clique Cabalístico</button>
+    
+</body>
+</html>
+<script>
+
+    numero = 0
+    function contar(){
+        numero = numero + 1
+
+        if(numero == 3 || numero == 4 || numero == 7 || numero == 10){
+            alert(`Você ja clicou ${numero} e Juliana gosta desse número!`)
+        }
+        pQtd.innerHTML = numero
+    }
+</script>

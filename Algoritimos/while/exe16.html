@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16</title>
+</head>
+<body>
+    <input type="text" placeholder="Quantidade de elefantes" id="inElefante">
+    <button onclick="cantar()">Canção</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function cantar(){
+        var numero = Number(inElefante.value)
+        
+        var contador = 1
+        
+        
+        while (contador < numero){
+            var incomoda = "" 
+            var ele = 0
+            contador++
+
+
+            while(ele < contador){
+                ele++
+                var incomoda = incomoda + 'incomodam, '
+            }
+            divR.innerHTML += 
+            `1 elefante incomoda muita gente!
+            <br><br>
+            ${contador} elefantes, ${incomoda} muito mais!<br><br>`
+         }
+         
+
+    }
+
+</script>

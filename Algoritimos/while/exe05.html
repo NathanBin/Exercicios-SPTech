@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+
+    <button onclick="nc()">Numeros Cabaliticos</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function nc(){
+        var contador = 0
+
+        var numeroCabalitico = contador == 3 || contador == 4 || contador == 7 || contador == 10 || contador == 12
+
+        while(contador < 30){
+            contador++
+            if(!numeroCabalitico){ 
+            divR.innerHTML += `${contador}<br>`
+            
+        }
+    }
+}
+</script>

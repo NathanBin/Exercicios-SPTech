@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08</title>
+</head>
+<body>
+
+    Insira quantidade de pães que você come no dia: <input type="text" id="inPao"><br>
+    Insira quantidade de bolacha que você come no dia: <input type="text" id="inBolacha"><br>
+    Insira quantidade de achocolatado que você toma no dia: <input type="text" id="inChocolate"><br>
+    <button onclick="verCaloria()">Verificar calorias</button>
+    <div id="divResultado"></div>
+    
+</body>
+</html>
+<script>
+    function verCaloria(){
+        var pao = Number(inPao.value)*50
+        var bolacha = Number(inBolacha.value)*80
+        var choco = Number(inChocolate.value)*70
+        var caloria = pao + bolacha + choco
+        var resultado = ''
+
+        if(caloria < 200){
+            resultado = 'Parabéns, vai sair em forma da quarentena!'
+        }else if(caloria < 400){
+            resultado = 'Cuidado, vai ficar mais "fofinho(a)" após quarentena!'
+        }else {
+            resultado = 'Bom, acho que muitos não vão te reconhecer após a quarentena!'
+        }
+
+        divResultado.innerHTML = resultado
+
+        
+
+
+    }
+</script>

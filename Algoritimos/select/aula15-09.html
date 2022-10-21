@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    
+    <h2>Ganhos das classes sociais</h2> 
+
+    <select id="selClasse">
+        <option value="20000">Classe A</option>
+        <option value="10000">Classe B</option>
+        <option value="3700">Classe C</option>
+        <option value="1500">Classe D</option>
+    </select>
+    <button onclick="ganhos()">Ver ganhos</button>
+
+    <br><br>
+
+    <h2>conte-me segredos</h2>
+    <select id="selSegredo" onchange="segredo()">
+        <option value="">- Escolha um -</option>
+        <option value="Eu canto rock">JP</option>
+        <option value="Estou sempre com raiva">Bruce Banner</option>
+        <option value="Não gosto do onclick">João Teodoro</option>
+    </select>
+    
+</body>
+</html>
+<script>
+    function ganhos(){
+        var ganhoMinimo = Number(selClasse.value)
+        alert (`Para ser dessa classe você precisa ganhar + de ${ganhoMinimo}`)
+    }   
+    function segredo(){
+        var secret = selSegredo.value
+
+        if (segredo != ""){
+            alert(`O segredo é: "${secret}"`)
+        }
+
+    }
+
+
+
+</script>

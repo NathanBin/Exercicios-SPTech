@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+
+    <input type="text" id="inInicial" placeholder="Altura inicial"><br>
+    <input type="text" id="inFinal" placeholder="Altura final"><br>
+    <input type="text" id="inNome" placeholder="insira seu nome"><br>
+    <input type="text" id="inAltura" placeholder="insira sua altura"><br>
+    <button onclick="cad()">Cadastrar</button>
+
+    <div id="divResultado"></div>
+    
+</body>
+</html>
+<script>
+    function cad(){
+        var inicial = Number(inInicial.value)
+        var final = Number(inFinal.value)
+        var nome = inNome.value
+        var altura = Number(inAltura.value)
+
+        if(inicial >= 1 && final > inicial){
+           if(altura >= inicial && altura <= final) {
+            divResultado.innerHTML += `O candidato ${nome} com altura de ${altura.toFixed(2)} participará do processo de seleção de piloto<br>`
+           }else {
+            divResultado.innerHTML += `Infelizmente o candidato ${nome} com altura de ${altura.toFixed(2)} não atende os requisitos<br>`
+           }
+        }else{
+            alert('altura inicial e final inválida') 
+        }
+
+    }
+</script>

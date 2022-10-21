@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    <h2>Oração de São Francisco</h2>
+
+    Selecione um verso: 
+    <select id="selVerso" onchange="versos()">
+        <option value="">- Selecione um verso -</option>
+        <option value=", que eu leve o Amor">Verso 1</option>
+        <option value=", que eu leve o Perdão">Verso 2</option>
+        <option value=", que eu leve a União">Verso 3</option>
+        <option value=", que eu leve a Fé">Verso 4</option>
+        <option value=", que eu leve a Verdade">Verso 5</option>
+        <option value=", que eu leve a Esperança">Verso 6</option>
+        <option value=", que eu leve a Alegria">Verso 7</option>
+        <option value=", que eu leve a Luz">Verso 8</option>
+    </select>
+    <div id="divVerso">Onde houver Ódio<br>
+        Onde houver Ofensa<br>
+        Onde houver Discórdia<br> 
+        Onde houver Dúvida<br>
+        Onde houver Erro<br>
+        Onde houver Desespero<br>
+        Onde houver Tristeza<br>
+        Onde houver Treva<br>
+    </div>
+
+</body>
+</html>
+<script>
+    function versos(){
+        var verso = selVerso.value
+
+        if(verso == ""){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}
+        else if(verso == ", que eu leve o Amor"){divVerso.innerHTML = (
+            `Onde houver Ódio${verso}<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve o Perdão"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa${verso}<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve a União"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia${verso}<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve a Fé"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida${verso}<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve a Verdade"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro${verso}<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve a Esperança"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero${verso}<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve a Alegria"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza${verso}<br>
+            Onde houver Treva<br>
+            `
+        )}else if(verso == ", que eu leve a Luz"){divVerso.innerHTML = (
+            `Onde houver Ódio<br>
+            Onde houver Ofensa<br>
+            Onde houver Discórdia<br> 
+            Onde houver Dúvida<br>
+            Onde houver Erro<br>
+            Onde houver Desespero<br>
+            Onde houver Tristeza<br>
+            Onde houver Treva${verso}<br>
+            `
+        )}
+
+
+    }
+</script>

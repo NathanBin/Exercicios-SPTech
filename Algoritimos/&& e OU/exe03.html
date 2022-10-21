@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <select id="selMarca">
+        <option value="A">Samsung</option>
+        <option value="B">LG</option>
+        <option value="C">Mondial</option>
+        <option value="D">Britânia</option>
+    </select><br>
+    <input type="text" id="inPreco" placeholder="Preço da TV"><br>
+    <button onclick="analise()">Analisar Compra</button>
+    <div id="divR"></div>
+</body>
+</html>
+<script>
+    function analise(){
+        var tipo = selMarca.value
+        var preco = Number(inPreco.value)
+
+        var resu = ''
+
+        if(preco < 800 || preco > 2000){
+            resu = `TV fora da faixa de preço <br>`
+            if(preco < 800){
+                resu += 'Preço baixo demais'
+            }else{
+                resu += 'TV cara demais infelizmente'
+            }
+        }
+        if ((tipo == 'C' || tipo == 'D') && (preco >= 800 && preco <= 2000)){
+            resu = 'Na faixa de preço, porém marca não confiável'
+        }
+        if ((tipo == 'A' || tipo == 'B') && (preco >= 800 && preco <= 2000)){
+            resu = 'Essa TV pode entrar na sua lista!'
+        }
+        
+        divR.innerHTML = resu
+    }
+</script>

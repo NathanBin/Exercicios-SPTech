@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+    Insira seu peso: <input type="text" id="inPeso"><br>
+    Insira sua altura: <input type="text" id="inAltura"><br>
+    <button onclick="imc(1)">IMC Homem</button>
+    <button onclick="imc(2)">IMC Mulher</button>
+    <div id="divResultado"></div>
+
+    
+</body>
+</html>
+<script>
+    function imc(id){
+        var peso = Number(inPeso.value)
+        var altura = Number(inAltura.value)
+        var imcH = (peso / (altura * altura)).toFixed(2)
+        var imcM = (imcH * 0.9).toFixed(2)
+
+        if(id == 1){
+          divResultado.innerHTML =  (`O seu IMC é ${imcH}!`)
+        }
+        if(id == 2){
+          divResultado.innerHTML =  (`O seu IMC é ${imcM}!`)
+        }
+
+    }
+</script>

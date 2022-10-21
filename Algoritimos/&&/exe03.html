@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    Insira uma nota <input type="text" id="inNota">
+    <button onclick="avaliar()">Avaliar aluno</button>
+    
+</body>
+</html>
+<script>
+    function avaliar(){
+        var nota = Number(inNota.value)
+
+        if(nota >=0 && nota <=10){
+            alert ('Nota válida')
+        }else{
+            alert('Nota inválida')
+        }
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    <h2>Nutricionista</h2>
+
+    Insira o peso da criança: <input type="text" id="inPeso" onkeyup="verPeso()">
+    <div id="divPeso"></div>
+    
+</body>
+</html>
+<script>
+    function verPeso(){
+        var peso = Number(inPeso.value)
+        var resultado = ''
+
+        if(peso <= 13.5){
+            resultado = 'Abaixo do peso'
+        }else if(peso == 18.3){
+            resultado = 'Peso perfeito'
+        }else if(peso <= 21.2){
+            resultado = 'Peso na média'
+        }else {
+            resultado = 'Acima do peso'
+        }
+        divPeso.innerHTML = resultado
+
+    }
+</script>

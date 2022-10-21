@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <input type="text" id="inNome" placeholder="Nome da pessoa que você mais ama"><br>
+    <input type="number" id="inAmor" placeholder="Quanto você a ama?"><br>
+    <button onclick="amor()">Expressar Amor</button>
+    <div id="divR"></div>
+</body>
+</html>
+<script>
+    function amor(){
+        var nome = inNome.value
+        var qtd = Number(inAmor.value)
+        var contador = 0
+
+        while(contador < qtd){
+            contador++
+            divR.innerHTML += `${contador} - ${nome}, eu te amo! Sempre lembre disso! <br>`
+        }
+
+    }
+</script>

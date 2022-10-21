@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <h2></h2>
+
+    Selecione o time que vc torce: 
+    <select id="selTime">
+        <option value="">- Selecione seu time -</option>
+        <option value="1">Corinthans</option>
+        <option value="2">Palmeiras</option>
+        <option value="3">Santos</option>
+        <option value="4">São Paulo</option>
+    </select>
+    <button onclick="verTime()">Fale sobre esse time</button>
+    <div id="divResultado"></div>
+    
+    
+</body>
+</html>
+<script>
+    
+    function verTime(){
+        var time = selTime.value
+        var resultado1 = ''
+        
+        if(time == ''){
+            divResultado.innerHTML = ''
+        }else if(time == 1){
+            divResultado.innerHTML = `<span style="background-color: black; color: white">Salve o Corinthians</span>`
+        }else if(time == 2){
+            divResultado.innerHTML = `<span style="background-color: green; color: white">Salve o alviverde impotente</span>`
+        }else if(time == 3){
+            divResultado.innerHTML = `<span style="background-color: white; color: black">Agora que dá a bola é o Santos</span>`
+        }else if(time == 4){
+            divResultado.innerHTML = `<span style="background-color: black; color: red">Salve o Tricolor paulista</span>`
+        }
+        
+    }
+    
+
+    
+</script>

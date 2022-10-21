@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07b</title>
+</head>
+<body>
+    Insira o peso total no elevador: <input type="text" id="in_01"><br>
+    <button onclick="ligar()">Ligar elevador</button>
+
+
+
+    
+</body>
+</html>
+<script>
+    function ligar(){
+        var peso = Number(in_01.value)
+        
+
+        if (peso < 500){
+            alert ('Elevador vai se mover.')
+        }
+        else{
+            alert ('Alguém precisa descer do elevador.')
+        }
+    }
+</script>

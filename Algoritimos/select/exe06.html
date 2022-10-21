@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <h2>Estações do ano</h2>
+
+    Selecione uma estação:
+    <select id="selEstacao" onchange="estacoes()">
+        <option value="https://s1.static.brasilescola.uol.com.br/galeria/images/2d28fe1a3b1ed960bca2e3798803c6b5.jpg">Verão</option>
+        <option value="https://s2.static.brasilescola.uol.com.br/img/2019/09/primavera.jpg">Primavera</option>
+        <option value="https://static.escolakids.uol.com.br/2020/07/frio-extremo.jpg">Inverno</option>
+        <option value="https://s3.static.brasilescola.uol.com.br/be/2021/03/outono.jpg">Outono</option>
+    </select>
+    <br><br>
+    <img id="imgEstacao" src="" alt="" style="height: 200px;">
+</body>
+</html>
+<script>
+    function estacoes(){
+        imgEstacao.src = selEstacao.value
+    }
+</script>
+

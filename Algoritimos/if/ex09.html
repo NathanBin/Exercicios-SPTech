@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+    
+Informe uma sitcom: <input type="text" id="in_01"><br>
+Informe o total de episódios assistidos: <input type="text" id="in_02"><br>
+<button onclick="verificar()">verificar nivel</button>
+<div id="div_01"></div>
+
+</body>
+</html>
+<script>
+    function verificar(){
+var nome = in_01.value
+var ep = Number(in_02.value)
+var min = (ep * 22) / 60
+
+        div_01.innerHTML = (`Vejo que você gosta da série ${nome}`)
+
+        if (min > 30){
+            div_01.innerHTML += (' <br> Uau, você realmente gosta dessa série!')
+        }
+    }
+</script>

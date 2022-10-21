@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    Insira a nota de um aluno: <input type="text" id="inNota">
+    <button onclick="notas()">Avaliar aluno</button>
+    
+</body>
+</html>
+<script>
+    function notas(){
+        var nota = Number(inNota.value)
+
+        if(nota <= 6){
+            alert('Aluno reprovado')
+        }else if(nota >=6 && nota <=8.5){
+            alert('Aluno comum e aprovado')
+        }else if(nota >=8.5 && nota <=10){
+            alert('Aluno exemplar')
+        }else {
+            alert('Nota inválida')
+        }
+    }
+</script>

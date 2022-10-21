@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+<body>
+
+    <select id="selFruta">
+        <option value="Banana">Banana</option>
+        <option value="Uva">Uva</option>
+        <option value="Maça">Maça</option>
+        <option value="Pera">Pêra</option>
+    </select><br>
+    <button onclick="analise()">Vai comer?</button>
+    
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var fruta = selFruta.value
+
+        if(fruta == 'Banana' || fruta == 'Uva'){
+            alert('Eu não como essa fruta!')
+        }else {
+            alert('Eu como essa fruta!')
+        }
+    }
+</script>
