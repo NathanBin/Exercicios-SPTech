@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-11</title>
+</head>
+<body>
+
+    <h2>Cadastro de frutas</h2>
+    <input type="text" id="inFruta" placeholder="Cadastre uma fruta">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="divR">
+        Total de frutas: <b id="fTotal">0</b><br>
+        2º fruta: <b id="fSegunda"></b><br>
+        4º fruta: <b id="fQuarta"></b><br>
+        Última fruta: <b id="fUltima"></b>
+    </div>
+    <br>
+    <input type="text" id="inPesquisa" placeholder="Pesquisa">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="divPesquisa"></div>
+
+
+</body>
+</html>
+<script>
+
+    var fruta = []
+
+    function cadastrar(){
+
+        fruta.push(inFruta.value)       
+        fTotal.innerHTML = fruta.length 
+        if(fruta.length >= 2){
+            fSegunda.innerHTML = fruta[1]
+        }      
+        if(fruta.length >= 4){
+            fQuarta.innerHTML = fruta[3]
+        }
+        fUltima.innerHTML = fruta[(fruta.length - 1)]
+    }
+
+    function pesquisar(){
+        var resultado = fruta.indexOf(inPesquisa.value);
+        var frase
+
+        if(resultado >= 0){
+            frase = `Essa fruta já está cadastrada<br>Está na posição ${resultado}`
+        }else{
+            frase = 'Essa fruta ainda não foi cadastrada'
+        }
+        
+        divPesquisa.innerHTML = frase
+    }
+
+</script>

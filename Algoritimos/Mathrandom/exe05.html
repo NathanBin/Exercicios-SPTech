@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+
+    <button onclick="jokenpo()">Jogar</button>
+    <div id="divR"></div>
+    <div id="divR2">Vitorias: <b id="dWin">0</b> - Empates: <b id="dDraw">0</b> - Derrota: <b id="dLoose">0</b></div>
+    
+</body>
+</html>
+<script>
+    var win = 0
+    var draw = 0
+    var loose = 0
+
+    function jokenpo(){
+        var jogar = parseInt(1 + Math.random() * 3)
+        var oponente = parseInt(1 + Math.random() * 3)
+        var vitoria = (jogar == 1 && oponente == 2) || (jogar == 2 && oponente == 3) || (jogar == 3 && oponente == 1)
+        var derrota = (jogar == 1 && oponente == 3) || (jogar == 2 && oponente == 1) || (jogar == 3 && oponente == 2)
+        var empate = (jogar == 1 && oponente == 1) || (jogar == 2 && oponente == 2) || (jogar == 3 && oponente == 3)
+
+        if(jogar == 1){
+            divR.innerHTML = `<img height="200px" src="https://34495.cdn.simplo7.net/static/34495/sku/acessorios-para-costura-tesouras-e-alicates-tesoura-stainless-steel-scissors-6-5-ut66-17-5cm--p-1619810854179.png" alt=""><br>`
+        }else if(jogar == 2){
+            divR.innerHTML = `<img height="200px" src="https://cdn.entrypoint.directory/assets/46588/produtos/7066/4913429069-cart-o-triplex.jpg" alt=""><br>`
+        }else{
+            divR.innerHTML = `<img height="200px" src="https://images.tcdn.com.br/img/img_prod/606732/pedra_moledo_clara_lajinha_2287_1_19e67d614fa6d82cad27d2db277722c2_20220214143128.jpeg" alt=""><br>`
+        }
+
+        if(oponente == 1){
+            divR.innerHTML += `<img height="200px" src="https://34495.cdn.simplo7.net/static/34495/sku/acessorios-para-costura-tesouras-e-alicates-tesoura-stainless-steel-scissors-6-5-ut66-17-5cm--p-1619810854179.png" alt="">`
+        }else if(oponente == 2){
+            divR.innerHTML += `<img height="200px" src="https://cdn.entrypoint.directory/assets/46588/produtos/7066/4913429069-cart-o-triplex.jpg" alt="">`
+        }else{
+            divR.innerHTML += `<img height="200px" src="https://images.tcdn.com.br/img/img_prod/606732/pedra_moledo_clara_lajinha_2287_1_19e67d614fa6d82cad27d2db277722c2_20220214143128.jpeg" alt="">`
+        }
+
+        if(vitoria){
+            win++
+            dWin.innerHTML = win
+        }
+        if(empate){
+            draw++
+            dDraw.innerHTML = draw
+        }
+        if(derrota){
+            loose++
+            dLoose.innerHTML = loose
+        }
+        
+    }
+</script>

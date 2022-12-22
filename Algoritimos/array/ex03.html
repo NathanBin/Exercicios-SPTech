@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <label for="selResultado">Indique o resultado</label>
+    <select id="selResultado">
+        <option value="v">Vitória</option>
+        <option value="e">Empate</option>
+        <option value="d">Derrota</option>
+    </select><br>
+    <button onclick="registrar()">Registrar jogo</button><br>
+    <input onkeyup="listar()" id="inPesquisa" placeholder="Indique qual jogo que saber resultado">
+
+    <div id="divR">
+        O time teve: <span id="win">0</span> vitórias, <span id="draw">0</span> empates, <span id="loss">0</span> derrotas
+        <br><br>
+        Pontuação total: <span id="pontos">0</span> pontos
+        <br><br>
+        Aproveitamento: <span id="aproveitamento">-</span>%
+    </div>
+    <div id="divP"></div>
+    
+</body>
+</html>
+<script>
+    var resultados = []
+
+    function registrar(){
+        var resultado = selResultado.value
+        var vitoria = 0
+        var empate = 0
+        var derrota = 0
+
+        resultados.push(resultado)
+
+        for(var i = 0; i < resultados.length; i++){
+            if(resultados[i] == 'v'){
+                vitoria++
+            }else if(resultados[i] == 'e'){
+                empate++
+            }else{
+                derrota++
+            }
+        }
+
+        win.innerHTML = vitoria
+        draw.innerHTML = empate
+        loss.innerHTML = derrota
+        pontos.innerHTML = (vitoria * 3) + (empate)
+        aproveitamento.innerHTML = (((vitoria * 3) + (empate)) / (resultados.length * 3)) * 100 
+    }
+
+    function listar(){
+        var indice = Number(inPesquisa.value)
+        var frase
+
+        if(indice <= 0){
+            frase = `${indice} não é um número de partida valida`
+        }else if(resultados[indice - 1] == 'v'){
+            frase = `No ${indice}º jogo, o time Ganhou`
+        }else if(resultados[indice - 1] == 'e'){
+            frase = `No ${indice}º jogo, o time Empatou`
+        }else if(resultados[indice - 1] == 'd'){
+            frase = `No ${indice}º jogo, o time Perdeu`
+        }else{
+            frase = `Não foi cadastrado um ${indice}º jogo`
+        }
+
+        divP.innerHTML = frase
+    }
+
+</script>

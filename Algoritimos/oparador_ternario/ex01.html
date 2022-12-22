@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+<body>
+
+    <input type="text" id="inLogin" placeholder="Login"><br>
+    <input type="text" id="inSenha" placeholder="Senha"><br>
+    <input type="text" id="inCVV" placeholder="Código de segurança"><br>
+
+    <button onclick="entrar()">Entrar</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function entrar(){
+        var login = inLogin.value
+        var senha = inSenha.value
+        var cvv = inCVV.value
+        var frase
+
+        var frase = (login == 'SPTECH' && senha == 'SCHOOL')||cvv == '595' ? 'Usuário autenticado com sucesso' : 'Falha na autenticação'
+
+        divR.innerHTML = frase
+    }
+</script>

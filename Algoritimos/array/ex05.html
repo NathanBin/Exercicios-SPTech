@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05</title>
+</head>
+<body>
+
+    <input type="text" id="inNome" placeholder="Nome do produto">
+    <input type="text" id="inPreco" placeholder="Preço da compra"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Relatório de estoque</button>
+    <div id="divR">
+        Total de produtos: <span id="qtd">0</span>
+    </div>
+    
+</body>
+</html>
+<script>
+    var produtos = []
+
+    function cadastrar(){
+        var nome = inNome.value
+        var preco = Number(inPreco.value)
+
+        if(nome == '' || preco == ''){
+            alert('O produto precisa conter nome e preço!')
+        }else{
+            produtos.push(
+                {
+                    nome,
+                    preco
+                }
+            )
+        }
+        divR.innerHTML = `Total de produtos: <span id="qtd">${produtos.length}</span>`
+    }
+
+    function listar(){
+        var maisCaro = 0
+        var nomeMaisCaro
+        var maisBarato = 0
+        var nomeMaisBarato     
+        var soma = 0
+
+        for(var i = 0, maisBarato = produtos[0].preco, nomeMaisBarato = produtos[0].nome; i < produtos.length; i++){
+            var atual = produtos[i]
+
+            if(atual.preco > maisCaro){
+                maisCaro = atual.preco
+                nomeMaisCaro = atual.nome
+            }
+            if(atual.preco < maisBarato){
+                maisBarato = atual.preco
+                nomeMaisBarato = atual.nome
+            }
+            soma = soma + atual.preco     
+        }
+
+        var media = (soma * 1.25) / produtos.length
+
+        divR.innerHTML = `Total de produtos: <span id="qtd">${produtos.length}</span><br>
+        Produto mais caro: ${nomeMaisCaro}<br>
+        Produto mais barato: ${nomeMaisBarato}<br>
+        Preço total da compra: ${soma.toFixed(2)}<br>
+        Média do preço de venda: ${media.toFixed(2)}<br><br>`
+        
+        for(var i = 0; i < produtos.length; i++){
+            var atual = produtos[i]
+            divR.innerHTML += `
+            Produto ${i + 1}: ${atual.nome}<br>
+            Preço de compra: R$${(atual.preco).toFixed(2)}. Vender por R$${(atual.preco * 1.25).toFixed(2)}<br><br>
+            `
+        }
+    }
+</script>

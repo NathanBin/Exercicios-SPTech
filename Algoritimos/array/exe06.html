@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <input type="text" id="inFilme" placeholder="Ordem de filmes favoritos">
+    <button onclick="cadastrar()">Cadastrar filme</button>
+
+    <div id="divR">Nenhum filme cadastrado ainda</div>
+    
+</body>
+</html>
+<script>
+    var filme = []
+
+    function cadastrar(){
+        filme.push(inFilme.value)
+        divR.innerHTML = ''
+
+        for(var i = 0; i < filme.length; i++){
+            divR.innerHTML += `${i + 1} - ${filme[i]}<br>`
+        }
+    }
+</script>

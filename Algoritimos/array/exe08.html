@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08</title>
+</head>
+<body>
+
+    <input type="text" id="inAluno" placeholder="Nome do aluno">
+    <button onclick="cadastrar()">Cadastrar aluno</button>
+    
+    <div id="divR"></div>
+
+</body>
+</html>
+<script>
+    var alunos = []
+
+    function cadastrar(){
+        alunos.push(inAluno.value)
+        divR.innerHTML = ''
+
+        for(var i = alunos.length; i > 0; i--){
+            divR.innerHTML += `${i} - ${alunos[i - 1]}<br>`
+        }
+    }
+</script>

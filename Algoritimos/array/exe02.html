@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Destino da viagem" id="inDestino">
+    <button onclick="cadastrar()">Adicionar</button><br>
+    <button onclick="pesquisar(1)">Primeira viagem</button>
+    <button onclick="pesquisar(2)">Terceira viagem</button>
+    <button onclick="pesquisar(3)">Ultima viagem</button>
+
+    <div id="divR"></div>
+
+    
+</body>
+</html>
+<script>
+    destinos = []
+
+    function cadastrar(){
+        destinos.push(inDestino.value)
+    }
+
+    function pesquisar(id){
+        var lugar = inDestino.value
+        var frase
+
+        if(id == 1){
+            if(destinos.length >= 1){
+                frase = `${destinos[0]}`
+            }else{
+                frase = `Ainda não viajou`
+            }
+        }else if(id == 2){
+            if(destinos.length >= 3){
+                frase = `${destinos[2]}`
+            }else{
+                frase = `Ainda não fez a tericera viagem`
+            }
+        }else{
+            if(destinos.length >= 1){
+                frase = `${destinos[destinos.length - 1]}`
+            }else{
+                frase = `Ainda não viajou`
+            }
+        }
+        divR.innerHTML = frase
+    }
+
+</script>

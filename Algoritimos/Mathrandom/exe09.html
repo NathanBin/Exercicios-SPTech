@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09</title>
+</head>
+<body>
+
+    <button onclick="gerarNota()">Gerar nota 3-10</button>
+    <button onclick="gerarFreq()">Gerar freq 50-100</button>
+    <button onclick="situacao()">Aprovado?</button>
+    <div id="divSituacao">
+        Nota: <b id="dNota">-</b><br>
+        Frequência: <b id="dFreq">-</b><br>
+        Situação: <b id="dSituacao">-</b>
+    </div>
+    
+</body>
+</html>
+<script>
+    var nota = 0
+    var freq = 0
+
+    function gerarNota(){
+        var notaRandom = Number((3 + Math.random() * (10 - 3)).toFixed(1))
+
+        dNota.innerHTML = `${notaRandom}`
+        nota = notaRandom
+    }
+    function gerarFreq(){
+        var freqRandom = Number((50 + Math.random() * (100 - 50)).toFixed(1))
+
+        dFreq.innerHTML = `${freqRandom}`
+        freq = freqRandom
+    }
+    function situacao(){
+        if(nota >= 6 && freq >= 75){
+            dSituacao.innerHTML = 'Aprovado'
+        }else{
+            dSituacao.innerHTML = 'Reprovado'
+        }
+    }
+</script>

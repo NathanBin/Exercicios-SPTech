@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+<body>
+
+    <input type="text" id="inAnimal" placeholder="Cadastre um animal">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Relatório</button>
+
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+
+    var animais = []
+
+    function cadastrar(){
+        animais.push(inAnimal.value)
+    }
+
+    function listar(){
+        divR.innerHTML = `Você cadastrou ${animais.length} animais`
+        var nomeAtual = ''
+        jaForam = []
+        contadores = []
+        for(var i = 0; i < animais.length; i++){
+            nomeAtual = animais[i]
+            jaForam.push(nomeAtual)
+            cont = 0
+            for(var j = 0; j < animais.length; j++){
+                if(nomeAtual == animais[i]){
+                    cont++
+                    animais.splice(i)
+                    if(i == animais.length - 1){
+                        contadores.push(cont)
+                    }
+                }
+            }
+        }
+
+        
+    }
+</script>

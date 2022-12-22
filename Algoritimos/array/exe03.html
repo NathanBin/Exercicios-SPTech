@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <input type="text" id="inBairro" placeholder="Bairro em que já morou">
+    <button onclick="cadastrar()">Cadastrar Bairro</button>
+    <input type="text" id="inNumero" placeholder="Procurar moradia" onkeyup="pesquisar()">
+
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    var moradias = []
+
+    function cadastrar(){
+        var bairro = inBairro.value
+
+        moradias.push(bairro)
+    }
+
+    function pesquisar(){
+        var numero = Number(inNumero.value)
+
+        if(numero <= moradias.length){
+            divR.innerHTML = `A sua ${numero}º moradia foi ${moradias[numero - 1]}.`
+        }else{
+            divR.innerHTML = `Você não teve a sua ${numero}º moradia`
+        }
+    }
+</script>

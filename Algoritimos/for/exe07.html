@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+</head>
+<body>
+
+    <input type="text" id="inInferior" placeholder="coloque o valor minimo"><br>
+    <input type="text" id="inSuperior" placeholder="coloque o valor maximo"><br>
+    <input type="text" id="inDiv" placeholder="coloque o divisor"><br>
+
+    <button onclick="contar()">Contar</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function contar(){
+        var inf = Number(inInferior.value)
+        var sup = Number(inSuperior.value)    
+        var divisor = Number(inDiv.value)
+        var limites = inf < 1 || sup > 100
+
+        if(limites || divisor < 3 || divisor > 10){
+            if(inf < 1){
+                alert('Inferior abaixo do limite')
+            }
+            if(sup > 100){
+                alert('Superior acima do limite')
+            }   
+            if(divisor < 3 || divisor > 10){
+                alert('Divisor precisa ser entre 3 e 10')
+            }
+        }else{
+            for(var contador = inf ; contador <= sup; contador++){
+                if(contador % divisor == 0){
+                    divR.innerHTML += `${contador}<br>`
+                }
+            }
+        }
+
+    }
+</script>

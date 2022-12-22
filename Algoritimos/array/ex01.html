@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01</title>
+</head>
+<body>
+
+    <input type="text" id="inPreco" placeholder="Preço do produto">
+    <button onclick="cadastrar()">Cadastrar!</button>
+    <button onclick="listar()">Atualizar Estoque</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+
+    var precos = []
+
+    function cadastrar(){
+        precos.push(Number(inPreco.value))
+    }
+
+    function listar(){
+        var soma = 0
+
+        for(var i = 0; i < precos.length; i++){
+            soma = soma + precos[i]
+        }
+
+        divR.innerHTML = `Você tem ${precos.length} produtos cadastrados! <br><br>
+        Seu estoque vale: ${soma.toFixed(2)}`
+    }
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    <select id="selTipo">
+        <option value="">- Selecione um -</option>
+        <option value="M">Marvel</option>
+        <option value="D">DC</option>
+    </select><br>
+    <button onclick="tipo()">Ver programação semanal da TV</button>
+    <div id="divR"></div>
+
+    
+</body>
+</html>
+<script>
+    function tipo(){
+        var tipo = selTipo.value
+        var sorte = false
+
+        for(var i = 1; i <= 5; i++){
+            var num = parseInt(1 + Math.random() * 2)
+
+            if(tipo == 'M'){
+                if(num % 2 == 0){
+                    divR.innerHTML = `Você verá um filme que gosta no ${i}º dia`
+                    sorte = true
+                    break
+                }
+            }else{
+                if(num % 2 == 1){
+                    divR.innerHTML = `Você verá um filme que gosta no ${i}º dia`
+                    sorte = true
+                    break
+                }
+            }
+        }
+
+        if(!sorte){
+            divR.innerHTML = `É, ou lê um livro ou assiste um filme que não gosta mesmo`
+        }
+    }
+</script>

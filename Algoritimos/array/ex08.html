@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08</title>
+</head>
+<style>
+    .container{
+        width: 650px;
+        height: 300px;
+        border: 1px solid blue;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 25px;
+    }
+    .container h1{
+        color: brown;
+    }
+    .caixa{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+    }
+    .caixa label{
+        color: brown;
+        font-size: 23px;
+        margin-right: 10px;
+    }
+    .caixa input{
+        border: 1px solid brown;
+        height: 23px;
+        width: 150px;
+        color: brown;
+        padding-left: 5px;
+        outline: none;
+    }
+    .botoes{
+        margin-top: 25px;
+    }
+    .botoes button{
+        width: 150px;
+        height: 30px;
+        margin-right: 70px;
+        background-color: transparent;
+        border: 1px solid rgb(184, 53, 6);
+        color: rgb(184, 53, 6);
+        cursor: pointer;
+        outline: none;
+    }
+    #lista{
+        color: brown;
+        font-size: 23px;
+        margin-right: 10px;
+    }
+    #caixa3{
+        display: none;
+        flex-direction: row;
+        align-items: center;
+    }
+    #botoes2{
+        display: none;
+    }
+    #selTipo{
+        display: none;
+        border: 1px solid brown;
+        height: 23px;
+        width: 150px;
+        color: brown;
+        padding-left: 5px;
+        outline: none;
+    }
+</style>
+<body>
+
+    <div class="container">
+        <h1>Análise de performance de Alunos - Registro</h1>
+        <div id="conteudo" class="conteudo">
+        <div id="caixa" class="caixa">
+            <label for="inNome">Entre com o Nome do aluno</label>
+            <input type="text" id="inNome">
+        </div>
+        <div id="caixa2" class="caixa">
+            <label for="inNota1">Nota continuada 1</label>
+            <input type="text" id="inNota1">
+        </div>
+        <div id="caixa2" class="caixa">
+            <label for="inNota2">Nota continuada 2</label>
+            <input type="text" id="inNota2">
+        </div>
+        <div id="caixa2" class="caixa">
+            <label for="inNota3">Nota continuada 3</label>
+            <input type="text" id="inNota3">
+        </div>
+        <div id="botoes" class="botoes">
+            <button onclick="registrar()">Registrar</button>
+            <button onclick="analisar()">Analisar</button>
+        </div>
+        </div>
+        <div id="caixa3" class="caixa">
+            <label for="">Entre com o intervalo de notas:</label>
+            <input type="text" id="inDe" placeholder="De">
+            <input type="text" id="inAte" placeholder="Até">
+        </div>
+        <select id="selTipo">
+            <option value="ac1">Continuada 1</option>
+            <option value="ac2">Continuada 2</option>
+            <option value="ac3">Continuada 3</option>
+        </select>
+        <div id="botoes2" class="botoes">
+            <button onclick="pesquisar()">Pesquisar</button>
+            <button onclick="pesquisarF()">Pesquisar com filtro</button>
+        </div>
+    </div>
+    <div id="lista"></div>
+    
+</body>
+</html>
+<script>
+    var alunos = []
+
+    function registrar(){
+        var nome = inNome.value
+        var nota1 = Number(inNota1.value)
+        var nota2 = Number(inNota2.value)
+        var nota3 = Number(inNota3.value)
+        var validacao = nome != '' && (nota1 >= 0 && nota1 <= 10) && (nota2 >= 0 && nota2 <= 10) && (nota3 >= 0 && nota3 <= 10)
+
+        if(validacao){
+            alunos.push({nome, nota1, nota2, nota3})
+
+            lista.innerHTML = ''
+            for(var i = alunos.length; i > 0; i--){
+                lista.innerHTML += `${i}º Aluno: ${alunos[i - 1].nome} - Notas: ${alunos[i - 1].nota1}, ${alunos[i - 1].nota2}, ${alunos[i - 1].nota3}<br>`
+            }
+        }else{
+            alert('Preencha os campos corretamente!')
+        }
+    }
+
+    function analisar(){
+        lista.innerHTML = ''
+        conteudo.style.display = "none"
+        caixa3.style.display = "flex"
+        botoes2.style.display = "block"
+        selTipo.style.display = "block"
+    }
+
+    function pesquisar(){
+        var de = Number(inDe.value)
+        var ate = Number(inAte.value)
+        var validacao = (de <= ate && de <= 10) && (ate >= de && ate <= 10)
+        var posicao = []
+        lista.innerHTML = ''
+
+        if(validacao){
+            for(var i = 0; i < alunos.length; i++){
+                var atual = alunos[i]
+                if((atual.nota1 >= de && atual.nota1 <= ate) || (atual.nota2 >= de && atual.nota2 <= ate) || (atual.nota3 >= de && atual.nota3 <= ate)){
+                    posicao.push(atual)
+                }
+            }
+        }else{
+            alert('Preencha os campos corretamente!')
+        }
+
+        if(posicao.length == 0){
+            lista.innerHTML = `Nenhum aluno encontrado nesses parâmetros`
+        }else{
+            for(var j = 0; j < posicao.length; j++){
+                lista.innerHTML += `O aluno ${posicao[j].nome} ficou com a nota ${posicao[j].nota1}, ${posicao[j].nota2}, ${posicao[j].nota3}<br>`
+            }
+        }
+    }
+
+    function pesquisarF(){
+        var tipo = selTipo.value
+        var de = Number(inDe.value)
+        var ate = Number(inAte.value)
+        var validacao = (de <= ate && de <= 10) && (ate >= de && ate <= 10)
+        var posicao = []
+        lista.innerHTML = ''
+
+        if(validacao){
+            if(tipo == 'ac1'){
+                for(var i = 0; i < alunos.length; i++){
+                    var atual = alunos[i]
+                    if(atual.nota1 >= de && atual.nota1 <= ate){
+                        posicao.push(atual)
+                    }
+                }
+            }else if(tipo == 'ac2'){
+                for(var i = 0; i < alunos.length; i++){
+                    var atual = alunos[i]
+                    if(atual.nota2 >= de && atual.nota2 <= ate){
+                        posicao.push(atual)
+                    }
+                }
+            }else{
+                for(var i = 0; i < alunos.length; i++){
+                    var atual = alunos[i]
+                    if(atual.nota3 >= de && atual.nota3 <= ate){
+                        posicao.push(atual)
+                    }
+                }
+            }
+        }else{
+            alert('Preencha os campos corretamente!')
+        }
+
+        if(posicao.length == 0){
+            lista.innerHTML = `Nenhum aluno encontrado nesses parâmetros`
+        }else{
+            if(tipo == 'ac1'){
+                for(var j = 0; j < posicao.length; j++){
+                    lista.innerHTML += `O aluno ${posicao[j].nome} ficou com a nota ${posicao[j].nota1} na AC1<br>`
+                }
+            }else if(tipo == 'ac2'){
+                for(var j = 0; j < posicao.length; j++){
+                    lista.innerHTML += `O aluno ${posicao[j].nome} ficou com a nota ${posicao[j].nota2} na AC2<br>`
+                }
+            }else{
+                for(var j = 0; j < posicao.length; j++){
+                    lista.innerHTML += `O aluno ${posicao[j].nome} ficou com a nota ${posicao[j].nota3} na AC3<br>`
+                }
+            }
+        }
+    }
+</script>

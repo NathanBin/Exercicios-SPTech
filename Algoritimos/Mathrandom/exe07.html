@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+</head>
+<body>
+
+    <button onclick="cabalistico()">Quero um cabalistico</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function cabalistico(){
+        var numero = parseInt(1 + Math.random() * 15)
+
+        if(numero == 3 || numero == 4 || numero == 7 || numero == 10 || numero == 12){
+            divR.innerHTML += `${numero} AMO ESSE NUMERO!<br>`
+        }else{
+            divR.innerHTML += `${numero}<br>`
+        }
+    }
+</script>

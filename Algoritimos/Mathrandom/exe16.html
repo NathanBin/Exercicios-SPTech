@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16</title>
+</head>
+<body>
+
+    <button onclick="lua()">Ver a lua</button>
+    <div id="divLua"></div>
+    
+</body>
+</html>
+<script>
+    function lua(){
+        var dia = parseInt(1 + Math.random() * 31)
+
+        if(dia <= 7){
+            divLua.innerHTML = `Dia: ${dia} - Lua Nova<br>
+            <img height="150px" src="https://cdn.shopify.com/s/files/1/1061/1924/files/Dark_moon_emoji_icon_png_200x200.png" alt="">`
+        }else if(dia <= 16){
+            divLua.innerHTML = `Dia: ${dia} - Lua Cheia<br>
+            <img height="150px" src="https://cdn.shopify.com/s/files/1/1061/1924/files/Full_moon_emoji_icon_png_200x200.png" alt="">`
+        }else if(dia <= 22){
+            divLua.innerHTML = `Dia: ${dia} - Lua Minguante<br>
+            <img height="150px" src="https://cdn.shopify.com/s/files/1/1061/1924/files/First_quarter_moon_emoji_icon_png_200x200.png" alt="">`
+        }else{
+            divLua.innerHTML = `Dia: ${dia} - Lua Crescente<br>
+            <img height="150px" src="https://cdn.shopify.com/s/files/1/1061/1924/files/Waning_crescent_moon_emoji_icon_png_200x200.png" alt="">`
+        }
+    }
+</script>

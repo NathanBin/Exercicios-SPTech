@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-11</title>
+</head>
+<body>
+    Qual sobremesa comeu?
+    <input type="text" id="inSobremesa">
+    <button onclick="cadastrar()">Cadastrar</button>
+    
+    <button onclick="mostrar()">Mostrar todas</button>
+    <button onclick="reverse()">Mostrar invertido</button>
+    <button onclick="mostrarColorido()">Mostrar colorido</button>
+    <input type="text" id="inQtd" onkeyup="verQtd()">
+    <div id="divSobremesa" ></div>
+    <div id="divQtd"></div>
+    <style></style>
+    <font color=""></font>
+</body>
+</html>
+<script>
+    sobremesas = []
+
+    function verQtd(){
+        var comida = inQtd.value
+        var ver = sobremesas.indexOf(comida)
+        var frase
+        var contador = 0
+
+            for(var i = 0; i < sobremesas.length; i++){
+
+                if(sobremesas[i] == comida){
+                    contador++
+                }
+            }
+
+            if(contador > 0){
+                frase = `Você comeu ${comida} ${contador} vez(es)`
+            }else{
+                frase = `Não comeu ${comida} ainda`
+            }
+        
+
+        divQtd.innerHTML = frase
+    }
+
+    function cadastrar(){
+        sobremesas.push(inSobremesa.value)
+    }
+
+    function mostrar(){
+        divSobremesa.innerHTML = ''
+
+        for(var i = 0; i < sobremesas.length; i++){
+            if(i % 2 == 0){
+                divSobremesa.innerHTML += `${i+1} - ${sobremesas[i]}<br>`
+            }else{
+                divSobremesa.innerHTML += `${i+1} - ${sobremesas[i]}<br>`
+            }
+        }
+    }
+    function mostrarColorido(){
+        divSobremesa.innerHTML = ''
+
+        for(var i = 0; i < sobremesas.length; i++){
+            if(i % 2 == 0){
+                divSobremesa.innerHTML += `<span style="color: blue">${i+1} - ${sobremesas[i]}</span><br>`
+            }else{
+                divSobremesa.innerHTML += `<span style="color: black">${i+1} - ${sobremesas[i]}</span><br>`
+            }
+        }
+    }
+
+
+    function reverse(){
+        divSobremesa.innerHTML = ''
+
+        for(var i = sobremesas.length; i > 0; i--){
+            divSobremesa.innerHTML += `${i} - ${sobremesas[i-1]}<br>`
+        }
+    }
+
+</script>

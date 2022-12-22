@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20</title>
+</head>
+<body>
+
+    <div id="divR">
+        <p>Jogador 1: <b id="J1">0</b></p>
+        <p>Jogador 2: <b id="J2">0</b></p>
+        <p>Empate: <b id="J0"></b></p>
+    </div>
+    <div id="divFrase"></div>
+    <button onclick="jogar()">Jogar!</button>
+    
+</body>
+</html>
+<script>
+    var wJ1 = 0
+    var wJ2 = 0
+    var wDraw = 0
+
+    function jogar(){
+        var dado1 = parseInt(1 + Math.random() * 6)
+        var dado2 = parseInt(1 + Math.random() * 6)
+        var winJ1 = dado1 > dado2
+        var winJ2 = dado2 > dado1
+
+        if(winJ1){
+            wJ1++
+            J1.innerHTML = `${wJ1}`
+            divFrase.innerHTML = `Jogador 1 ganhou porque ${dado1} é maior que ${dado2}`
+        }else if(winJ2){
+            wJ2++
+            J2.innerHTML = `${wJ2}`
+            divFrase.innerHTML = `Jogador 2 ganhou porque ${dado2} é maior que ${dado1}`
+        }else{
+            wDraw++
+            J0.innerHTML = `${wDraw}`
+            divFrase.innerHTML = `Houve empate porque ${dado1} é igual ao ${dado2}`
+        }
+
+        if(wJ1 > wJ2){
+            divFrase.innerHTML += `<br>Jogador 1 está vencendo por ${wJ1 - wJ2} pontos de vantagem!`
+        }else if(wJ2 > wJ1){
+            divFrase.innerHTML += `<br>Jogador 2 está vencendo por ${wJ2 - wJ1} pontos de vantagem!`
+        }else{
+            divFrase.innerHTML += `<br>O placar está empatado!`
+        }
+    }
+</script>

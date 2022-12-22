@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+
+    <input type="text" id="inDeposito" placeholder="quantidade de depositos no banco"><br>
+    <input type="text" id="inValor" placeholder="valor dos depositos"><br>
+    <button onclick="banco()">Acompanhar grana</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function banco(){
+        var deposito = Number(inDeposito.value)
+        var valor = Number(inValor.value)
+        divR.innerHTML = ''
+        var i = 0
+
+        for(; i < deposito; ){
+            i++
+            divR.innerHTML += `${i}º Mês R$${(i * valor).toFixed(2)}<br>`
+        }
+        divR.innerHTML += `Total guardado: R$${(i * valor).toFixed(2)}`
+    }
+</script>

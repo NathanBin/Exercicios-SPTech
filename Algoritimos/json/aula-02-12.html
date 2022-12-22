@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02-12</title>
+</head>
+<body>
+    
+    <input type="text" id="inPiloto" placeholder="Insira o nome do piloto"><br>
+    <button onclick="registrar()">Registrar</button>
+    <button onclick="realizar()">Realizar Corrida</button>
+    <br><br>
+    <div id="divR"></div>
+    <br><br>
+    <div id="divPodio"></div>
+
+</body>
+</html>
+
+<script>
+    var pilotos = []
+
+    function registrar(){
+        var nome = inPiloto.value
+
+        if(pilotos.length < 12){
+            var piloto = {
+                nome, 
+                combustivel: 75,
+                tempo: 0 
+            }
+            pilotos.push(piloto)
+        }else{
+            alert("A quantidade total de pilotos foi atingida")
+        }
+
+    }
+
+
+    // Tava complicado fazer a validação correta, desconsidera essa gambiarra ai :P
+    var ganhador = {nome: '', tempo: 99999}
+    var segundo = {nome: '', tempo: 99999}
+    var terceiro = {nome: '', tempo: 99999}
+
+    function realizar(){
+        divR.innerHTML = ''
+        var desclassificados = []
+
+        if(pilotos.length >= 5){
+            for(var i = 0; i < 15; i++){
+                
+
+                for(var j = 0; j < pilotos.length; j++){
+                    var piloto = pilotos[j]
+                    var velocidade = parseInt(210 + Math.random() * (290 - 210))
+                    var combustivelGasto = 0.02 * velocidade
+                    piloto.combustivel = piloto.combustivel - combustivelGasto
+                    var tempo = 20 / (velocidade / 60)
+                    var restoTempo = 0.6 * (tempo % parseInt(tempo))
+                    var tempoConvertido = ((parseInt(tempo)) + restoTempo).toFixed(2)
+                    piloto.tempo = piloto.tempo + tempo
+
+                    if(piloto.combustivel <= 0){
+                        desclassificados.push(j)
+                    }else{
+                    divR.innerHTML += `
+                        Volta ${i + 1} - Piloto: ${piloto.nome} - Velocidade: ${velocidade} - Combustível: ${piloto.combustivel.toFixed(2)} - Tempo: ${tempoConvertido}<br>
+                    `
+                    }
+
+                }
+            }
+            if(desclassificados.length > 0){
+                for(var l = 0; l < desclassificados.length; l++){
+                    pilotos.splice(l, 1)
+                }
+            }
+
+            for(var k = 0; k < pilotos.length; k++){
+                var piloto = pilotos[k]
+
+                if(piloto.tempo < ganhador.tempo){
+                    terceiro = segundo
+                    segundo = ganhador
+                    ganhador = piloto
+                }else if((piloto.tempo < segundo.tempo) && (piloto != ganhador)){
+                    terceiro = segundo
+                    segundo = piloto
+                }else if((piloto.tempo < terceiro.tempo) && (piloto != segundo)){
+                    terceiro = piloto
+                }
+
+            }
+
+            divPodio.innerHTML = `
+                1 - Carro: ${ganhador.nome} - Tempo Total: ${parseInt(ganhador.tempo / 60)}h ${((ganhador.tempo) % 60).toFixed(2)}<br>
+                2 - Carro: ${segundo.nome} - Tempo Total: ${parseInt(segundo.tempo / 60)}h ${((segundo.tempo) % 60).toFixed(2)}<br>
+                3 - Carro: ${terceiro.nome} - Tempo Total: ${parseInt(terceiro.tempo / 60)}h ${((terceiro.tempo) % 60).toFixed(2)}
+            `
+        }else{
+            alert('Quantidade minima de pilotos ainda não foi atingida')
+        }
+
+    }
+
+</script>

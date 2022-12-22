@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+
+    <button onclick="dado1()">Jogador 1 jogar dado</button>
+    <div id="divJ1"></div>
+    <button onclick="dado2()">Jogador 2 jogar dado</button>
+    <div id="divJ2"></div>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    var J1 = 0
+    var J2 = 0
+
+    function dado1(){
+        var jogador1 = parseInt(1 + Math.random() * 6)
+        divJ1.innerHTML = jogador1
+        J1 = jogador1
+    }
+    function dado2(){
+        var jogador2 = parseInt(1 + Math.random() * 6)
+        divJ2.innerHTML = jogador2
+        J2 = jogador2
+
+        if(J1 != 0 && J2 != 0){
+            if(J1 > J2){
+                divR.innerHTML = `Jogador 1 venceu`
+            }else if(J1 == J2){
+                divR.innerHTML = `Empate`
+            }else{
+                divR.innerHTML = `Jogador 2 Venceu`
+            }
+        }else{
+            alert('Jogue o primeiro dado antes de obter o resultado')
+        }
+    }
+
+</script>

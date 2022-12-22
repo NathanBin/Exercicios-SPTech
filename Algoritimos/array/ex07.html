@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07</title>
+</head>
+<style>
+    .container{
+        width: 650px;
+        height: 240px;
+        border: 1px solid blue;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 25px;
+    }
+    .container h1{
+        color: brown;
+    }
+    .caixa{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+    }
+    .caixa label{
+        color: brown;
+        font-size: 23px;
+        margin-right: 10px;
+    }
+    .caixa input{
+        border: 1px solid brown;
+        height: 23px;
+        width: 150px;
+        color: brown;
+        padding-left: 5px;
+        outline: none;
+    }
+    .botoes{
+        margin-top: 25px;
+    }
+    .botoes button{
+        width: 150px;
+        height: 30px;
+        margin-right: 70px;
+        background-color: transparent;
+        border: 1px solid rgb(184, 53, 6);
+        color: rgb(184, 53, 6);
+        cursor: pointer;
+        outline: none;
+    }
+    #lista{
+        color: brown;
+        font-size: 23px;
+        margin-right: 10px;
+    }
+    #caixa3{
+        display: none;
+        flex-direction: row;
+        align-items: center;
+    }
+    #botoes2{
+        display: none;
+    }
+</style>
+<body>
+
+    <div class="container">
+        <h1>Análise de performance de Alunos - Registro</h1>
+        <div id="caixa" class="caixa">
+            <label for="inNome">Entre com o Nome do aluno</label>
+            <input type="text" id="inNome">
+        </div>
+        <div id="caixa2" class="caixa">
+            <label for="inNota">Entre com a Nota do aluno</label>
+            <input type="text" id="inNota">
+        </div>
+        <div id="botoes" class="botoes">
+            <button onclick="registrar()">Registrar</button>
+            <button onclick="analisar()">Analisar</button>
+        </div>
+        <div id="caixa3" class="caixa">
+            <label for="">Entre com o intervalo de notas:</label>
+            <input type="text" id="inDe" placeholder="De">
+            <input type="text" id="inAte" placeholder="Até">
+        </div>
+        <div id="botoes2" class="botoes">
+            <button onclick="pesquisar()">Pesquisar</button>
+        </div>
+    </div>
+    <div id="lista"></div>
+    
+</body>
+</html>
+<script>
+    var alunos = []
+
+    function registrar(){
+        var nome = inNome.value
+        var nota = Number(inNota.value)
+        var validacao = nome != '' && (nota >= 0 && nota <= 10)
+
+        if(validacao){
+            alunos.push({nome, nota})
+
+            lista.innerHTML = ''
+            for(var i = alunos.length; i > 0; i--){
+                lista.innerHTML += `${i}º Aluno: ${alunos[i - 1].nome} - Nota: ${alunos[i - 1].nota}<br>`
+            }
+        }else{
+            alert('Preencha os campos corretamente!')
+        }
+    }
+
+    function analisar(){
+        lista.innerHTML = ''
+        caixa.style.display = "none"
+        caixa2.style.display = "none"
+        botoes.style.display = "none"
+        caixa3.style.display = "flex"
+        botoes2.style.display = "block"
+    }
+
+    function pesquisar(){
+        var de = Number(inDe.value)
+        var ate = Number(inAte.value)
+        var validacao = (de <= ate && de <= 10) && (ate >= de && ate <= 10)
+        var posicao = []
+        lista.innerHTML = ''
+
+        if(validacao){
+            for(var i = 0; i < alunos.length; i++){
+                var atual = alunos[i]
+                if(atual.nota >= de && atual.nota <= ate){
+                    posicao.push(atual)
+                }
+            }
+        }else{
+            alert('Preencha os campos corretamente!')
+        }
+
+        for(var j = 0; j < posicao.length; j++){
+            lista.innerHTML += `O aluno ${posicao[j].nome} ficou com a nota ${posicao[j].nota}<br>`
+        }
+    }
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+<body>
+
+    <input type="text" id="inIdade" placeholder="Insira sua idade" onkeyup="analise()"><br>
+    <div id="divR" style="display: none;">
+        Já passou pela infância: <span id="divInfancia"></span>
+            <br>
+            Já passou pela adolescência: <span id="divAdolescencia"></span>
+            <br>
+            Já é um idoso: <span id="divIdoso"></span>
+            <br>
+            TOTAL DE PONTOS: <span id="divPontos"></span>
+    </div>
+
+    
+</body>
+</html>
+<script>
+    function analise(){
+        var idade = Number(inIdade.value)
+        divR.style.display = "block";
+
+        var infancia = idade > 12
+        var adol = idade > 18
+        var idoso = idade >= 65
+        var pontos = 0
+
+        pontos += infancia ? 10 : 0
+        pontos += adol ? 20 : 0
+        pontos += idoso ? 50 : 0
+
+        divInfancia.innerHTML = infancia ? true : false
+        divAdolescencia.innerHTML = adol ? true : false
+        divIdoso.innerHTML = idoso ? true : false
+        divPontos.innerHTML = pontos
+
+
+    }
+</script>

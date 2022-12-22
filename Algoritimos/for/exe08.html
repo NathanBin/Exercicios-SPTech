@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08</title>
+</head>
+<body>
+
+    <input type="text" id="inCoca" placeholder="quantidade de coca cola">
+    <button onclick="coca()">ver as cocas</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function coca(){
+        var coca = Number(inCoca.value)
+        divR.innerHTML = ''
+        for(var i = 0; i < coca; i++){
+            divR.innerHTML += `<img width="100px" src="https://www.imigrantesbebidas.com.br/bebida/images/products/full/1984-refrigerante-coca-cola-lata-350ml.jpg" alt="">`
+        }
+    }
+</script>

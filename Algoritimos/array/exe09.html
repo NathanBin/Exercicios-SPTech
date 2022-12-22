@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09</title>
+</head>
+<body>
+
+    <input type="text" id="inProjeto" placeholder="Nome dos seus projetos">
+    <button onclick="cadastrar()">Cadastrar projeto</button>
+    <button onclick="listar()">Ver projetos</button>
+
+    <div id="divR">
+        Você fez <span id="numProjeto">nenhum</span> projeto(s). <span id="nivel"></span>
+    </div>
+    <div id="divProjetos"></div>
+
+</body>
+</html>
+<script>
+    var projetos = []
+
+    function cadastrar(){
+        projetos.push(inProjeto.value)
+        var frase = 'Por isso você é um profissional'
+        var resultado = ''
+
+        if(projetos.length <= 4){
+            resultado = `${frase} Júnior`
+        }else if(projetos.length <= 12){
+            resultado = `${frase} Pleno`
+        }else{
+            resultado = `${frase} Sênior`
+        }
+
+        nivel.innerHTML = resultado
+        numProjeto.innerHTML = projetos.length
+    }
+
+    function listar(){
+        divProjetos.innerHTML = ''
+        for(var i = projetos.length; i > 0; i--){
+            divProjetos.innerHTML += `${i} - ${projetos[i-1]}<br>`
+        }
+    }
+</script>

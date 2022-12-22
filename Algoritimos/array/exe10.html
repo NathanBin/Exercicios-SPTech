@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10</title>
+</head>
+<body>
+
+    <input type="text" id="inLinha" placeholder="Linhas de ônibus"><br>
+    <button onclick="cadastrar()">Gravar Buzão</button><br>
+    <input type="text" id="inPesquisa" placeholder="Pesquisar Linha"><br>
+    <button onclick="pesquisar()">Pesquisar</button>
+
+    <div id="divLinhas"></div>
+    <div id="divPesquisa"></div>
+    
+</body>
+</html>
+<script>
+
+    var onibus = []
+
+    function cadastrar(){
+        var linhaOnibus = inLinha.value
+        onibus.push(linhaOnibus)
+        divLinhas.innerHTML = ''
+
+        for(var i = onibus.length; i > 0; i--){
+
+            divLinhas.innerHTML += `${i} - ${onibus[i-1]}<br>`
+        }
+
+    }
+
+    function pesquisar(){
+        var pesquisa = inPesquisa.value
+        var contador = 0
+        var numero = []
+
+        for(var i = 0; i < onibus.length; i++){
+            if(onibus[i] == pesquisa){
+                contador++
+                numero.push((i+1))
+            }
+        }
+        var frase2 = ''
+        if(contador > 0){
+            for(var j = 0; j < numero.length; j++){
+                frase2 += `${numero[j]} `
+            }
+            frase = `Você já pegou essa linha ${contador} vez(es), nessa ordem: ${frase2}`
+        }else{
+            frase = ` Você nunca pegou essa linha`
+        }
+
+        divPesquisa.innerHTML = frase
+    }
+</script>

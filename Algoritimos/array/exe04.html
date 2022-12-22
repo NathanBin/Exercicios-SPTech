@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    <input type="text" id="inFilme" placeholder="ordem de filmes favoritos">
+    <button onclick="cadastrar()">Cadastrar filme</button>
+    <button onclick="pesquisar()">Ver favoritos</button>
+
+    <div id="divR"></div>
+
+</body>
+</html>
+<script>
+    var filme = []
+
+    function cadastrar(){
+        filme.push(inFilme.value)
+    }
+
+    function pesquisar(){
+        var frase
+
+        if(filme.length > 0){
+            for(var i = 0; i < filme.length; i++){
+                if(i == 0){
+                    frase = `O que mais gosta é ${filme[i]}<br>`
+                }else{
+                    if(filme.length == 2){
+                        frase += `E desses, o que menos gosta é ${filme[i]}<br>`
+                    }else if(i < (filme.length - 1)){
+                        frase += `${i+1}º ${filme[i]}<br>` 
+                    }else{
+                        frase += `E desses, o que menos gosta é ${filme[i]}<br>`
+                    }
+                }               
+            }
+        }else{
+            frase = `Você ainda não cadastrou nenhum filme!`
+        }
+
+        divR.innerHTML = frase
+    }
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04</title>
+</head>
+<body>
+
+    <input type="text" id="inNome" placeholder="Nome do produto">
+    <input type="text" id="inPreco" placeholder="Preço da compra"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Relatório de estoque</button>
+    <div id="divR">
+        Total de produtos: <span id="qtd">0</span>
+    </div>
+    
+</body>
+</html>
+<script>
+    var produtos = []
+
+    function cadastrar(){
+        var nome = inNome.value
+        var preco = Number(inPreco.value)
+
+        if(nome == '' || preco == ''){
+            alert('O produto precisa conter nome e preço!')
+        }else{
+            produtos.push(
+                {
+                    nome,
+                    preco
+                }
+            )
+        }
+        divR.innerHTML = `Total de produtos: <span id="qtd">${produtos.length}</span>`
+    }
+
+    function listar(){
+        divR.innerHTML = `Total de produtos: <span id="qtd">${produtos.length}</span> <br><br>`
+        
+        for(var i = 0; i < produtos.length; i++){
+            var atual = produtos[i]
+            divR.innerHTML += `
+            Produto ${i + 1}: ${atual.nome}<br>
+            Preço de compra: R$${(atual.preco).toFixed(2)}. Vender por R$${(atual.preco * 1.25).toFixed(2)}<br><br>
+            `
+        }
+    }
+</script>

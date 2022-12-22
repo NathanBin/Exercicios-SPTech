@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03</title>
+</head>
+<body>
+
+    <button onclick="dado()">Jogar dado</button>
+    <div id="divR"></div>
+    
+
+</body>
+</html>
+<script>
+    function dado(){
+        var valorDado = parseInt(1 + Math.random() * 6)
+
+        if(valorDado == 1){
+            divR.innerHTML = `<img height="150px" src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-dice-one-icon-png-image_313036.jpg" alt="">`
+        }else if(valorDado == 2){
+            divR.innerHTML = `<img height="150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6O2k-VYsnNbFBKZd44vNQAFDHUYw6iL2yqYuYl_9JOm24TuVIyXBHJFzcX6DZp1c0qCc&usqp=CAU" alt="">`
+        }else if(valorDado == 3){
+            divR.innerHTML = `<img height="150px" src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-dice-three-icon-png-image_313038.jpg" alt="">`
+        }else if(valorDado == 4){
+            divR.innerHTML = `<img height="150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgtTy1cnhAAtmzMkZMn5ixbZ1w1v7y38nVqxaMx3pvL10FLwZYKefROWfyXEtsW5rFb-Y&usqp=CAU" alt="">`
+        }else if(valorDado == 5){
+            divR.innerHTML = `<img height="150px" src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-dice-five-icon-png-image_313040.jpg" alt="">`
+        }else{
+            divR.innerHTML = `<img height="150px" src="https://png.pngtree.com/png-clipart/20190520/original/pngtree-vector-dice-six-icon-png-image_3773555.jpg" alt="">`
+        }
+    }
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17</title>
+</head>
+<body>
+
+    <button onclick="sortear()">Sortear número</button>
+    <div id="divR">0</div>
+
+    <div id="divNumeros">
+       <p>Números pares: <b id="par">0</b></p>
+       <p>Números ímpares: <b id="impar">0</b></p>
+    </div>
+
+    
+</body>
+</html>
+<script>
+
+    var numPar = 0
+    var numImpar = 0
+
+    function sortear(){
+        var num = (-30) + parseInt(Math.random() * ((-9 + 1) - (-30)))
+
+        divR.innerHTML = `${num}`
+
+        if(num % 2 == 0){
+            numPar++
+            par.innerHTML = `${numPar}` 
+        }else{
+            numImpar++
+            impar.innerHTML = `${numImpar}`
+        }
+
+    }
+</script>

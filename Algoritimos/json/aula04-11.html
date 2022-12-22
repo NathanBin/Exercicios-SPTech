@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04-11</title>
+</head>
+<body>
+    <input type="text" id="inNome" placeholder="nome">
+    <input type="text" id="inTelefone" placeholder="telefone">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir Contatos</button>
+
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+
+    contatos = []
+
+    function cadastrar(){
+        var nomeContato = inNome.value
+        var telefoneContato = Number(inTelefone.value)
+        var validacao = nomeContato != '' && telefoneContato != ''
+        
+        if(validacao){
+            contatos.push({nome: nomeContato, telefone: telefoneContato})
+        }else{
+            alert('Você precisa preencher todos os campos')
+        }
+    }
+
+    function exibir(){
+        /* divR.innerHTML = `Pessoa: ${pessoa.nome} <br>Idade: ${pessoa.idade}` */
+        divR.innerHTML = ''
+
+        for(var i = 0; i < contatos.length; i++){
+            var contatoAtual = contatos[i]
+            divR.innerHTML += `${i+1} - Nome: ${contatoAtual.nome}, Telefone: ${contatoAtual.telefone}<br>`
+        }
+    }
+</script>

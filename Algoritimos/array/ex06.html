@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <input type="text" id="inNumero" placeholder="Digite um numero qualquer">
+    <button onclick="listar()">Analisar histórico</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    var numeros = []
+
+    function listar(){
+        var validacao = isNaN(inNumero.value)
+
+        if(validacao){
+            alert('Digite um numero!')
+        }else{
+            numeros.push(Number(inNumero.value))        
+            var maior = 0
+            var menor = 0
+            for(var i = 0, menor = numeros[0]; i < numeros.length; i++){
+                var atual = numeros[i]
+                if(atual > maior){
+                    maior = atual
+                }
+                if(atual < menor){
+                    menor = atual
+                }
+            }
+            divR.innerHTML = `Maior: ${maior}<br> Menor: ${menor}<br>`
+            for(var i = 0; i < numeros.length; i++){
+                divR.innerHTML += `${i + 1}º Numero: ${numeros[i]}<br>`
+            }
+        }
+    }
+</script>

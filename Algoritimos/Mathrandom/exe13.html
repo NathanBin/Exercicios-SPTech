@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13</title>
+</head>
+<body>
+
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="divR"></div>
+    <div id="divNota"></div>
+    
+    
+</body>
+</html>
+<script>
+    function avaliar(){
+        var numero = Number((Math.random() * 6).toFixed(1))
+
+        if(numero <= 0.5){
+            divNota.innerHTML = `Nota recebida: ${numero}`
+            divR.innerHTML = `<img height="150px" src="https://i.pinimg.com/564x/48/80/9b/48809b84353e9aebef7b6f3d7c3e1263.jpg" alt="">`
+        }else if(numero <= 1.5){
+            divNota.innerHTML = `Nota recebida: ${numero}`
+            divR.innerHTML = `<img height="150px" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/237/slightly-frowning-face_1f641.png" alt="">`
+        }else if(numero <= 3.5){
+            divNota.innerHTML = `Nota recebida: ${numero}`
+            divR.innerHTML = `<img height="150px" src="https://images.emojiterra.com/google/android-pie/512px/1f610.png" alt="">`
+        }else if(numero <= 4.5){
+            divNota.innerHTML = `Nota recebida: ${numero}`
+            divR.innerHTML = `<img height="150px" src="https://images.emojiterra.com/google/android-11/512px/1f60a.png" alt="">`
+        }else{
+            if(numero > 5){
+                divNota.innerHTML = `Nota recebida: ${parseInt(numero)}`
+                divR.innerHTML = `<img height="150px" src="https://w7.pngwing.com/pngs/409/185/png-transparent-happy-emoji-facebook-like-button-emoji-emoticon-haha-smiley-logos-long-time-no-see.png" alt="">`
+            }else{
+                divNota.innerHTML = `Nota recebida: ${numero}`
+                divR.innerHTML = `<img height="150px" src="https://w7.pngwing.com/pngs/409/185/png-transparent-happy-emoji-facebook-like-button-emoji-emoticon-haha-smiley-logos-long-time-no-see.png" alt="">`
+            }
+        }
+    }
+</script>

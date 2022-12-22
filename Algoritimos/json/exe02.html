@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02</title>
+</head>
+<body>
+
+    <h1>Estoque
+
+    </h1>
+
+    <input type="text" id="inProduto" placeholder="Nome do produto"><br>
+    <select id="selTipo">
+        <option value="">-Selecione um-</option>
+        <option value="geral">Gerais</option>
+        <option value="alimento">Alimentos</option>
+        <option value="eletronico">Eletrônicos</option>
+    </select><br> 
+    <input type="text" id="inPreco" placeholder="Preço de venda"><br>   
+    <button onclick="registrar()">Regitrar produto</button>
+    <button onclick="verificar()">Listar produtos</button>
+
+    <div id="divR"></div>
+
+    <h1>Filtros</h1>
+    
+    <input type="text" id="inPesNome" placeholder="Pesquisar produto"><br>
+    <button onclick="PesquisaN()">Pesquisar por nome</button><br>
+    <select id="pesqTipo">
+        <option value="">-Selecione um-</option>
+        <option value="geral">Gerais</option>
+        <option value="alimento">Alimentos</option>
+        <option value="eletronico">Eletrônicos</option>
+    </select>
+    <button onclick="PesquisaT()">Pesquisar por produto</button><br>
+
+   <div id="divP"></div>
+    
+</body>
+</html>
+<script>
+    var lista = []
+
+    function registrar(){
+        var produto = inProduto.value
+        var preco = Number(inPreco.value)
+        var tipo = selTipo.value
+        var validar = produto != '' && preco != '' && validar != ''
+        divR.innerHTML = ''
+
+        if(validar){
+            lista.push({
+                produto,
+                tipo,
+                preco
+            })
+        }else{
+            alert('Inválido! Verifique o preenchimento dos campos e tente novamente!')
+        }
+
+    }
+
+    function verificar(){
+        var validar = lista.length >= 1
+
+        divR.innerHTML = ''
+        if(validar){
+            for(var i = 0; i < lista.length; i++){
+                divR.innerHTML += `Produto: ${lista[i].produto}<br>Tipo: ${lista[i].tipo}<br>Preço: ${lista[i].preco}<br><br>`
+            }
+        }else{
+            alert('Não há produtos registrados na lista!')
+        }
+    }
+
+
+    function PesquisaN(){
+        var pesqN = inPesNome.value
+        var produtoEncontrado = []
+        divP.innerHTML = ''
+
+        for(var i = 0; i < lista.length; i++){
+            if(lista[i].produto == pesqN){
+                produtoEncontrado.push(i)
+            }
+        }
+
+        if(produtoEncontrado.length > 0){
+            for(var j = 0; j < produtoEncontrado.length; j++){
+                divP.innerHTML += `Produto: ${lista[produtoEncontrado[j]].produto}<br>Tipo: ${lista[produtoEncontrado[j]].tipo}<br>Preço: ${lista[produtoEncontrado[j]].preco}<br><br>`
+            }
+        }else{
+            divP.innerHTML = `Não há nenhum produto com este nome registrado!`
+        }
+    }
+
+    function PesquisaT(){
+        var pesqT = pesqTipo.value
+        var produtoEncontrado = []
+
+        divP.innerHTML = ''
+        for(var i = 0; i < lista.length; i++){
+            if(lista[i].tipo == pesqT){
+                produtoEncontrado.push(i)
+            }
+        }
+
+        if(produtoEncontrado.length){
+            for(var j = 0; j < produtoEncontrado.length; j++){
+                divP.innerHTML += `Produto: ${lista[produtoEncontrado[j]].produto}<br>Tipo: ${lista[produtoEncontrado[j]].tipo}<br>Preço: ${lista[produtoEncontrado[j]].preco}<br><br>`
+            }
+        }else{
+            divP.innerHTML = `Não há nenhum produto com este nome registrado!`
+        }
+    }
+    
+</script>

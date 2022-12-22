@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19</title>
+</head>
+<style>
+    #container{
+        display: flex;
+        justify-content: space-between;
+    }
+    #caixa1{
+        width: 33%;
+    }
+    #caixa2{
+        width: 33%;
+    }
+    #caixa3{
+        width: 33%;
+    }
+</style>
+<body>
+    <div id="container">
+        <div id="caixa1">
+            <h2>1 sorteio para cada</h2>
+            <input type="text" id="inNome1" placeholder="Insira seu nome"><br>
+            <input type="text" id="inNum1" placeholder="1º Numero da sorte 1-10"><br>
+            <input type="text" id="inNum2" placeholder="2º Numero da sorte 1-10"><br>
+            <input type="text" id="inNum3" placeholder="3º Numero da sorte 1-10"><br>
+            <button onclick="sorteio1()">Sortear</button>
+            <div id="divR1"></div>
+        </div>
+        <div id="caixa2">
+            <h2>Sortear um de cada vez</h2>
+            <input type="text" id="inNome2" placeholder="Insira seu nome"><br>
+            <input type="text" id="inLucky1" placeholder="1º Numero da sorte 1-10"><br>
+            <input type="text" id="inLucky2" placeholder="2º Numero da sorte 1-10"><br>
+            <input type="text" id="inLucky3" placeholder="3º Numero da sorte 1-10"><br>
+            <button onclick="sorteio2()">Sortear</button>
+            <div id="divR2"></div>
+        </div>
+        <div id="caixa3">
+            <h2>Sortear os 3 ao mesmo tempo</h2>
+            <input type="text" id="inNome3" placeholder="Insira seu nome"><br>
+            <input type="text" id="inSorte1" placeholder="1º Numero da sorte 1-10"><br>
+            <input type="text" id="inSorte2" placeholder="2º Numero da sorte 1-10"><br>
+            <input type="text" id="inSorte3" placeholder="3º Numero da sorte 1-10"><br>
+            <button onclick="sorteio3()">Sortear</button>
+            <div id="divR3"></div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    function sorteio1(){
+        var nome = inNome1.value
+        var numSorte1 = Number(inNum1.value)       
+        var numSorte2 = Number(inNum2.value)       
+        var numSorte3 = Number(inNum3.value)       
+        var validacao = (numSorte1 >= 1 && numSorte1 <= 10) && (numSorte2 >= 1 && numSorte2 <= 10) && (numSorte3 >= 1 && numSorte3 <= 10)
+
+        if(validacao){
+            for(var i = 1; numRandom1 != numSorte1; i++){
+                var numRandom1 = parseInt(1 + Math.random() * 10)
+                if(numRandom1 == numSorte1){
+                    divR1.innerHTML = `Parabéns, ${nome} você foi sorteado(a) após ${i} sorteios!<br>`
+                }
+            }
+            for(var i = 1; numRandom2 != numSorte2; i++){
+                var numRandom2 = parseInt(1 + Math.random() * 10)
+                if(numRandom2 == numSorte2){
+                    divR1.innerHTML += `Parabéns, ${nome} você foi sorteado(a) após ${i} sorteios!<br>`
+                }
+            }
+            for(var i = 1; numRandom3 != numSorte3; i++){
+                var numRandom3 = parseInt(1 + Math.random() * 10)
+                if(numRandom3 == numSorte3){
+                    divR1.innerHTML += `Parabéns, ${nome} você foi sorteado(a) após ${i} sorteios!<br>`
+                }
+            }
+        }else{
+            alert('Numero da sorte deve ser de 0 a 10')
+        }
+    }
+    function sorteio2(){
+        var nome = inNome2.value
+        var numSorte1 = Number(inLucky1.value)       
+        var numSorte2 = Number(inLucky2.value)       
+        var numSorte3 = Number(inLucky3.value)       
+        var validacao = (numSorte1 >= 1 && numSorte1 <= 10) && (numSorte2 >= 1 && numSorte2 <= 10) && (numSorte3 >= 1 && numSorte3 <= 10)
+
+        if(validacao){
+            for(var i = 1; numRandom1 != numSorte1; i++){
+                var numRandom1 = parseInt(1 + Math.random() * 10)
+                if(numRandom1 == numSorte1){
+                    for(; numRandom2 != numSorte2; i++){
+                        var numRandom2 = parseInt(1 + Math.random() * 10)
+                        if(numRandom2 == numSorte2){
+                            for(; numRandom3 != numSorte3; i++){
+                                var numRandom3 = parseInt(1 + Math.random() * 10)
+                                if(numRandom3 == numSorte3){
+                                    divR2.innerHTML += `Parabéns ${nome}, seus 3 números foram sorteados após ${i} vezes!<br>`
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            
+            
+        }else{
+            alert('Numero da sorte deve ser de 0 a 10')
+        }
+    }
+    function sorteio3(){
+        var nome = inNome3.value
+        var numSorte1 = Number(inSorte1.value)       
+        var numSorte2 = Number(inSorte2.value)       
+        var numSorte3 = Number(inSorte3.value)       
+        var validacao = (numSorte1 >= 1 && numSorte1 <= 10) && (numSorte2 >= 1 && numSorte2 <= 10) && (numSorte3 >= 1 && numSorte3 <= 10)
+
+
+        //Não sei pq não está funcionando
+        if(validacao){
+            for(var i = 1; ((numRandom1 != numSorte1) && (numRandom2 != numSorte2) && (numRandom3 != numSorte3)); i++){
+                var numRandom1 = parseInt(1 + Math.random() * 10)
+                var numRandom2 = parseInt(1 + Math.random() * 10)
+                var numRandom3 = parseInt(1 + Math.random() * 10)
+                if((numRandom1 == numSorte1) && (numRandom2 == numSorte2) && (numRandom3 == numSorte3)){
+                    divR3.innerHTML += `Parabéns ${nome}, seus 3 números foram sorteados juntos após ${i} vezes!<br>`             
+                }
+            }        
+        }else{
+            alert('Numero da sorte deve ser de 0 a 10')
+        }
+    }
+</script>

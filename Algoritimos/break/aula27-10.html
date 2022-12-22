@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>27-10</title>
+</head>
+<body>
+
+    <button onclick="sortear()">Sortear 4237</button>
+    
+</body>
+</html>
+<script>
+    function sortear() {
+        var contador = 1
+        while (true) {
+            var num = parseInt(1 + Math.random() * 5000)
+            contador++
+            if(num == 4237){
+                alert('Sorteou finalmente!')
+                break
+            }
+
+        }
+
+        alert(`Sorteio finalizado! Foram sorteadas ${contador} vezes!`)
+    }
+</script>

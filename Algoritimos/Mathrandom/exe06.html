@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06</title>
+</head>
+<body>
+
+    <button onclick="momento()">Sortear momento do dia</button>
+    <div id="divR"></div>
+    
+</body>
+</html>
+<script>
+    function momento(){
+        var tempo = parseInt(Math.random() * 24)
+
+        if(tempo <= 11){
+            divR.innerHTML += `Bom dia, flor do dia, são ${tempo}h!<br>`
+        }else if(tempo <= 17){
+            divR.innerHTML += `Boa tarde, já vai tarde! São ${tempo}h!<br>`
+        }else{
+            divR.innerHTML += `Boa noite, durma bem! São ${tempo}h!<br>`
+        }
+    }
+</script>
